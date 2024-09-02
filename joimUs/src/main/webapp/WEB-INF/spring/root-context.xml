@@ -9,6 +9,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
+	<!-- 히카리 오라클 연동 -->
 	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
 		<property value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
 			name="driverClassName" />
