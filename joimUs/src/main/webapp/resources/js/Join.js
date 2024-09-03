@@ -7,7 +7,7 @@ function selectEmail(mail){
     $("#emailBack").val(mail);
     var emailFront=$("#emailFront").val();
     var emailBack=$("#emailBack").val();
-    $("#email").val(emailFront+"@"+emailBack);
+    $("#mail").val(emailFront+"@"+emailBack);
 }
 
 
@@ -16,7 +16,7 @@ function combineEmail(){
     
     var emailFront=$("#emailFront").val();
     var emailBack=$("#emailBack").val();
-    $("#email").val(emailFront+"@"+emailBack);
+    $("#mail").val(emailFront+"@"+emailBack);
     
 }
 
@@ -27,6 +27,7 @@ function passCheck(pass,passCheck){
     	document.getElementById('passCh').innerHTML="* 비밀번호가 일치하지 않습니다."
     }else{
         $("#passCh").hide();
+        document.getElementById('passCh').innerHTML=""
     }
 }
 
@@ -67,6 +68,8 @@ if (!$(this)[0].files[0]) return;
 	datas.append('image', file);
 	datas.append('folder', folder);
 	
+	console.log(datas);
+	
 	$.ajax({
 		url: '/upload/image',
 		type: 'POST',
@@ -95,45 +98,155 @@ if (!$(this)[0].files[0]) return;
 });
 
 
-function addressFind(){
-    new daum.Postcode({
-        oncomplete: function(data) {
-            console.log('aaaa');
-            // // 팝업을 통한 검색 결과 항목 클릭 시 실행
-            // alert('aaaa');
-            var addr = ''; // 주소_결과값이 없을 경우 공백 
-            var extraAddr = ''; // 참고항목
-            // alert('aaaa');
-            // // //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-            // if (data.userSelectedType === 'R') { // 도로명 주소를 선택
-            //     addr = data.roadAddress;
-            // } else { // 지번 주소를 선택
-            //     addr = data.jibunAddress;
-            // }
-            // alert('bbbb');
-            // if(data.userSelectedType === 'R'){
-            //     if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-            //         extraAddr += data.bname;
-            //     }
-            //     if(data.buildingName !== '' && data.apartment === 'Y'){
-            //         extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-            //     }
-            //     if(extraAddr !== ''){
-            //         extraAddr = ' (' + extraAddr + ')';
-            //     }
-            // } else {
-            //     document.getElementById("UserOrigin").value = '';
-            // }
-            
-            // 선택된 우편번호와 주소 정보를 input 박스에 넣는다.
-            document.getElementById('addressNum').value = data.zonecode;
-            document.getElementById("addressOrigin").value = addr;
-            
-            document.getElementById("addressOrigin").value += extraAddr;
-            document.getElementById("addressAdd").focus(); // 우편번호 + 주소 입력이 완료되었음으로 상세주소로 포커스 이동
+//우편주소 찾기(다음 API)
+function addressFind() {
+	new daum.Postcode({
+		oncomplete: function(data) {
+			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-        }
-    }).open();
+			// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+			// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+			var addr = ''; // 주소 변수
+			var extraAddr = ''; // 참고항목 변수
+
+			//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+			if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+				addr = data.roadAddress;
+			} else { // 사용자가 지번 주소를 선택했을 경우(J)
+				addr = data.jibunAddress;
+			}
+
+			// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+			if (data.userSelectedType === 'R') {
+				//법정동명이 있을 경우 추가한다. (법정리는 제외)
+				// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+				if (data.bname != '' && /[동|로|가]$/g.test(data.bname)) {
+					extraAddr += data.bname;
+				}
+				// 건물명이 있고, 공동주택일 경우 추가한다.
+				if (data.buildingName !== '' && data.apartment === 'Y') {
+					extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+				}
+				// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+				if (extraAddr !== '') {
+					extraAddr = extraAddr;
+				}
+				// 조합된 참고항목을 해당 필드에 넣는다.
+				document.getElementById("addressDetail1").value = extraAddr;
+				document.getElementById("addressDetail").value = extraAddr;
+
+			} else {
+				document.getElementById("addressDetail1").value = '';
+				document.getElementById("addressDetail").value = '';
+			}
+
+			// 우편번호와 주소 정보를 해당 필드에 넣는다.
+			document.getElementById('addressNumber').value = data.zonecode;
+			document.getElementById("address").value = addr;
+//			
+			// 커서를 상세주소 필드로 이동한다.
+			document.getElementById("addressDetail2").focus();
+		}
+	}).open();
+}
+
+ 
+
+//240903 상세주소와 참고항목 합치기
+function adr(){
+	
+	var addressDetail1 = document.getElementById("addressDetail1").value
+	var addressDetail2 = document.getElementById("addressDetail2").value;
+	
+	document.getElementById("addressDetail").value = addressDetail1 + addressDetail2;  
+	
+	
+}
 
 
+
+
+//240903 아이디 중복체크 함수
+function idCheck(id){
+	
+	var datas;
+	console.log(id);
+	
+	datas = new FormData();
+	datas.append('userId', id);
+	console.log(datas);
+	
+	$.ajax({
+		url: '/join/idCheck',
+		type: 'POST',
+		data: datas,
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function (data) {
+			alert('중복된 아이디입니다.');
+
+		},
+		error : function (jqXHR, textStatus, errorThrown) {
+			alert('사용 가능한 아이디입니다.');
+			document.getElementById('idChk').setAttribute('disabled',true);
+			
+		}
+	});
+}
+
+
+
+//240903 회원가입 유효성 및 완료 
+function joinConfirm(){
+	
+	
+	if ($("userId").val() == "") {
+		alert("아이디를 입력해주세요.")
+		$("#userId").focus();
+		return false;
+	}
+	
+	if (document.getElementById('idChk').getAttribute('disabled') != "true") {
+		alert("아이디 중복 확인해주세요.")
+		$("userId").focus();
+		return false;
+	}
+	
+	if($("#userImage").val() == ""){
+		alert("이미지를 등록해주세요.")
+		return false;
+	}
+	
+	if($("#password").val() == ""){
+		alert("비밀번호를 입력해주세요.")
+		$("#password").focus();
+		return false;
+	}
+	
+	if(document.getElementById('passCh').innerHTML != ""){
+		alert("비밀번호를 확인해주세요.")
+		$("#password").focus();
+		return false;
+	}
+	
+	if($("#name").val() == ""){
+		alert("이름을 입력해주세요.")
+		$("#name").focus();
+		return false;
+	}
+	
+	if($("#emailFront").val() == "" || $("#emailBack").val() == ""){
+		alert("이메일을 입력해주세요.")
+		$("#emailFront").focus();
+		return false;
+	}
+	
+	if($("#addressDetail").val() == "" ){
+		alert("주소를 입력해주세요.")
+		return false;
+	}
+	
+	$("#confirm").click();
+	
 }

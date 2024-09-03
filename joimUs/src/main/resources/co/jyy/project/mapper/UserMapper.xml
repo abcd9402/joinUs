@@ -11,5 +11,33 @@
 		]]>
 		
 	</select>
+	
+	
+	<select id="findId" resultType="co.jyy.project.VO.UserVO">
+		select userId
+		from userTable
+		where userId like #{userId}
+	</select>
+	
+	
+	<insert id="insertUser">
+		insert into userTable(
+			userId, password, name,
+			gender, mail, userImage
+		)values(
+			#{userId},#{password},#{name},
+			#{gender},#{mail},#{userImage}
+		)
+		
+	</insert>
+	
+	
+	<insert id="insertAddress">
+		insert into addressTable(
+			userId, addressNumber, address, addressDetail
+		)values(
+			#{userId}, #{addressNumber}, #{address}, #{addressDetail}
+		)
+	</insert>
 
 </mapper>

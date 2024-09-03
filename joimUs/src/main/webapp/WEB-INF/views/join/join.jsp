@@ -94,16 +94,16 @@
 <main>
 	<section class="container">
 		<div class="text-center mb-5" >
-			<form class="form-join border shadow" action="/user/success" method="post" >
+			<form class="form-join border shadow" action="/join/confirm" method="post" >
 				<!-- <img class="mb-4" src="/resources/images/logo.png" height="72"> -->
 				<h1 class="h3 mb-3 font-weight-normal" style="COLOR:#4174D9;">회원가입</h1>
 				<div class="form-group row" style="position:relative;">
 					<label for="staticEmail" class="col-sm-2 col-form-label">아이디</label>
 					<div class="col-sm-4">
-						<input class="form-control" type="text" id="id" name="user_id" value="" placeholder="ID입력">
+						<input class="form-control" type="text" id="userId" name="userId" value="" placeholder="ID입력">
 					</div>
 
-					<button type="button" class="btn btn-outline-primary" id="idChk" onclick="return idchk()">중복확인</button>
+					<button type="button" class="btn btn-outline-primary" id="idChk" onclick="idCheck(userId.value)">중복확인</button>
 					<input type="hidden" id = "idpass" value=""><!-- hidden -->
 					<input type="hidden" name="user_profile_img" id="user_profile_img" value="">
 					<div class="d-flex justify-content-center align-items-center border bg-light" id="previewImg" style="z-index:999;cursor:pointer;position:absolute;top:0;right:50px;width:150px;height:150px; "  >
@@ -117,7 +117,7 @@
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label" style="font-size:14px;">비밀번호입력</label>
 					<div class="col-sm-6">
-						<input class="form-control" type="password"  name="pass"  id="pass" value="" placeholder="pw입력" onkeyup="passCheck(pass.value, passConfirm.value)">
+						<input class="form-control" type="password"  name="password"  id="password" value="" placeholder="pw입력" onkeyup="passCheck(password.value, passConfirm.value)">
 						<div class="text-left text-danger pt-1" id="chkPW"></div>
 					</div>
 					
@@ -126,7 +126,7 @@
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label" style="font-size:14px;" >비밀번호확인</label>
 					<div class="col-sm-6">
-						<input class="form-control" type="password"  id="passConfirm" name="passConfirm" value="" placeholder="pw확인" onkeyup="passCheck(pass.value, passConfirm.value)">
+						<input class="form-control" type="password"  id="passConfirm" name="passConfirm" value="" placeholder="pw확인" onkeyup="passCheck(password.value, passConfirm.value)">
 						<div class="text-left text-danger pt-1" id="alertPW"></div>
 					</div>
 				</div>
@@ -134,7 +134,6 @@
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label" style="font-size:14px;" ></label>
 					<div class="col-sm-6">
-						
 						<div   class="text-left text-danger pt-1"  id="passCh" >
 						</div>
 					</div>
@@ -143,14 +142,14 @@
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">이름</label>
 					<div class="col-sm-4">
-						<input class="form-control" type="text" id="name" name="user_name" value="" placeholder="이름">
+						<input class="form-control" type="text" id="name" name="name" value="" placeholder="이름">
 					</div>
 				</div>
 				
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">성별</label>
 					<div class="col-sm-3">
-						<select class="form-control" id="gender" name="user_gender">
+						<select class="form-control" id="gender" name="gender">
 							<option value="M">남자</option>
 							<option value="F">여자</option>
 						</select>
@@ -173,13 +172,13 @@
 							<option value="gmail.com">구글</option>
 						</select>
 					</div>
-					<input type="hidden" id="email" name="user_email"><!-- hidden -->
+					<input type="hidden" id="mail" name="mail"><!-- hidden -->
 				</div>
 
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label">주소</label>
 					<div class="col-sm-3">
-						<input class="form-control" type="text" id="sample6_postcode" name="addressNumber" value="" placeholder="우편번호입력" readonly="readonly">
+						<input class="form-control" type="text" id="addressNumber" name="addressNumber" value="" placeholder="우편번호입력" readonly="readonly">
 					</div>
 					<button type="button" class="btn btn-outline-primary" onclick="addressFind()">우편번호 찾기</button>
 				</div>
@@ -187,34 +186,26 @@
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label"> </label>
 					<div class="col-sm-5">
-						<input class="form-control" type="text" id="sample6_address" name="address" value="" placeholder="주소" readonly="readonly">
+						<input class="form-control" type="text" id="address" name="address" value="" placeholder="주소" readonly="readonly">
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label for="inputPassword" class="col-sm-2 col-form-label"> </label>
 					<div class="col-sm-5">
-						<input class="form-control" type="text" id="sample6_detailAddress" name="addressDetail" value="" placeholder="상세주소" onkeyup="adr()">
+						<input class="form-control" type="text" id="addressDetail1" name="addressDetail1" value="" placeholder="상세주소" readonly="readonly">
 					</div>
 
 					<div class="col-sm-4">
-						<input class="form-control" type="text" id="sample6_extraAddress" name="" value="" placeholder="참고 항목" readonly="readonly"> 
+						<input class="form-control" type="text" id="addressDetail2" name="addressDetail2" value="" placeholder="참고 항목" onkeyup="adr()"> 
 					</div>
-					<input type="hidden" class="" id="Address" name="user_address" readonly="readonly"><!-- hidden -->
+					<input type="hidden" class="" id="addressDetail" name="addressDetail" readonly="readonly"><!-- hidden -->
 				</div>
 				
-				
-				<div class="row" id="playground-wrap" style="display:none;">
-				
-					<div class="col-sm-2"></div>
-					<div class="col-sm-5">
-						<div id="getmap"></div>
-					</div>
-					
-				</div>
 				
 				<div class="text-center mt-3">
-					<button class="btn btn-lg btn-primary" type="submit" onclick="return checks()">회원가입</button>
+				<input type="submit" id="confirm" />
+					<button class="btn btn-lg btn-primary" type="button" onclick="joinConfirm()">회원가입</button>
 					<button class="btn btn-lg btn-primary" type="reset">취소</button>
 				</div>				
 			</form>

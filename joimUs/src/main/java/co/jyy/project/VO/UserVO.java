@@ -4,6 +4,13 @@ import lombok.Data;
 
 @Data
 public class UserVO {
-	private String test;
+	private String userId;
+	private String password;
+	private String name;
+	private String gender;
+	private String mail;
+	private String userImage;
+	
+	
 
 }
