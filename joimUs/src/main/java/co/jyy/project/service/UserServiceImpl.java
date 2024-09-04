@@ -26,9 +26,9 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public UserVO findId(String userId) {
+	public UserVO idCheck(String userId) {
 		
-		return UDao.findId(userId);
+		return UDao.idCheck(userId);
 	}
 
 
@@ -43,6 +43,30 @@ public class UserServiceImpl implements UserService {
 	public void insertAddress(AddressVO aVO) {
 	
 		UDao.insertAddress(aVO);
+	}
+
+
+	@Override
+	public UserVO findId(String name, String mail) {
+		 UserVO uVO;
+		 uVO =UDao.findId(name,mail);
+		return uVO;
+	}
+
+
+	@Override
+	public UserVO sendMail(String userId, String name, String mail) {
+		 UserVO uVO;
+		 uVO =UDao.sendMail(userId,name,mail);
+		return uVO;
+	}
+
+
+	@Override
+	public UserVO login(String userId, String password) {
+		 UserVO uVO;
+		 uVO =UDao.login(userId,password);
+		return uVO;
 	}
 	
 	

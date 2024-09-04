@@ -13,7 +13,7 @@
 	</select>
 	
 	
-	<select id="findId" resultType="co.jyy.project.VO.UserVO">
+	<select id="idCheck" resultType="co.jyy.project.VO.UserVO">
 		select userId
 		from userTable
 		where userId like #{userId}
@@ -39,5 +39,39 @@
 			#{userId}, #{addressNumber}, #{address}, #{addressDetail}
 		)
 	</insert>
+	
+	
+	
+	<select id="findId" resultType="co.jyy.project.VO.UserVO">
+		<![CDATA[
+		select 
+			userId,name,mail 
+		from userTable 
+		where name like #{param1} and 
+				mail like #{param2}
+		]]>
+	</select>
+	
+	<select id="sendMail" resultType="co.jyy.project.VO.UserVO">
+		select 
+			userId,name,mail,password 
+		from userTable 
+		where name like #{param2} and 
+				mail like #{param3} and
+				userId like #{param1}
+	</select>
+	
+	
+	<select id="login" resultType="co.jyy.project.VO.UserVO"> 
+		select a.userId, a.password, a.name, 
+				a.gender, a.mail, a.userImage, 
+				b.addressNumber, b.address, b.addressDetail 
+		from userTable a left 
+			outer join addressTable b 
+		on a.userId like b.userId 
+		where a.userId like #{param1}
+	</select>
+	
+	
 
 </mapper>

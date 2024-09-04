@@ -19,21 +19,16 @@ public class UserDAOImpl  implements UserDAO{
 	}
 
 	@Override
-	public UserVO findId(String userId) {
+	public UserVO idCheck(String userId) {
+		
+		UserVO uVO;	
 		try {
-			UserVO uVO;	
-			uVO = UMapper.findId(userId);
-			return uVO;
-		} catch (Exception e) {
+			uVO = UMapper.idCheck(userId);
+		} catch (NullPointerException e) {
 			System.out.println("nulllll");
-			UserVO uVO=null;
-			return uVO;
+			uVO=null;
 		}
-		
-		
-		
-					
-		
+		return uVO;
 	}
 
 	@Override
@@ -47,6 +42,50 @@ public class UserDAOImpl  implements UserDAO{
 	public void insertAddress(AddressVO aVO) {
 		
 		UMapper.insertAddress(aVO);
+	}
+
+	@Override
+	public UserVO findId(String param1, String param2) {
+		
+//		UserVO uVO;
+//		System.out.println("doa: "+param1+param2);
+//		uVO = UMapper.findId(param1, param2);
+		
+		UserVO uVO;
+		System.out.println("doa: "+param1+param2);
+		try {
+			uVO = UMapper.findId(param1, param2);	
+		}catch(NullPointerException e) {
+			uVO=null;
+		}
+		
+		
+		
+		return uVO;
+		
+		
+	}
+
+	@Override
+	public UserVO sendMail(String userId, String name, String mail) {
+		UserVO uVO;
+		try {
+			uVO = UMapper.sendMail(userId, name,mail);	
+		}catch(NullPointerException e) {
+			uVO=null;
+		}
+		return uVO;
+	}
+
+	@Override
+	public UserVO login(String userId, String password) {
+		UserVO uVO;
+		try {
+			uVO = UMapper.login(userId,password);	
+		}catch(NullPointerException e) {
+			uVO=null;
+		}
+		return uVO;
 	}
 	
 	

@@ -1,69 +1,5 @@
 <!--  240825 회원가입 페이지  -->
 
-<%-- <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<head>
-    <!--0827 제이쿼리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
-    <!--0826 다음 우편주소 api-->
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <link href="/resources/css/Join.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    <title>Document</title>
-</head>
-<body>
-    <div class="joinWrapper" >
-        <h2>회원가입</h2>
-        <form method="post" action="login.html" id="joinForm">
-            <input type="text" name="id" placeholder="ID"/>
-            <input type="password" name="pass" placeholder="비밀번호" onkeyup="passCheck(pass.value, passConfirm.value)"/>
-            <input type="password" name="passConfirm" placeholder="비밀번호 확인" onkeyup="passCheck(pass.value, passConfirm.value)"/>
-            <div id="passCheck" hidden>
-                * 비밀번호가 일치하지 않습니다.
-            </div>
-            <input type="text" name="name" placeholder="성함" />
-            남자<input type="radio" name="gender" value="M" checked>
-			여자<input type="radio" name="gender" value="W" >
-            <input type="text" name="emailFront"  id="emailFront" placeholder="이메일" onchange="combineEmail()" />@
-            <input type="text" name="emailBack" id="emailBack" />
-            <input type="hidden1" name="email"id="email" />
-            <select name="selectValue" onchange="selectEmail(selectValue.value)">
-                <option value="" selected >선택</option>
-                <option value="naver.com">네이버</option>
-                <option value="daum.net">다음</option>
-                <option value="nate.com">네이트</option>
-            </select>
-            <input type="text" name="addressNum" id="addressNum" placeholder="우편 주소" />
-            <button type="button" onclick="addressFind()">주소 찾기</button>
-            <input type="text" name="addressOrigin" id="addressOrigin" placeholder="기본 주소" />
-            <input type="text" name="addressAdd" id="addressAdd" placeholder="상세 주소" />
-            <label id="imgArea">
-                이미지
-                <input type="file" name="img" id="img" accept='image/*' onchange="previewImg(event)" hidden/>
-            </label>
-            <div id="previewImg"><img id="profileImage" src="/resources/image/user/base.jpg"></div>
-            <input type="submit" value="회원가입"><button>취소</button>
-            
-        </form>
-
-    </div>
-
-
-    
-<!--     <script type="text/javascript" src="../../js/Join.js"></script> -->
-	<script src="/resources/js/Join.js"></script>
-</body>
-</html>
- --%>
-
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -204,11 +140,11 @@
 				
 				
 				<div class="text-center mt-3">
-				<input type="submit" id="confirm" />
+				<input type="submit" id="confirm" hidden/>
 					<button class="btn btn-lg btn-primary" type="button" onclick="joinConfirm()">회원가입</button>
 					<button class="btn btn-lg btn-primary" type="reset">취소</button>
 				</div>				
 			</form>
 		</div>
 	</section>
-</main>>
+</main>

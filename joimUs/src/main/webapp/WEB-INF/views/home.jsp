@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <html>
 <head>
 	<title>Home</title>
@@ -11,5 +11,15 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <button onclick="location.href='/join'">버튼</button>
+<button onclick="location.href='/login'">login</button>
+
+<%	
+	if(session.getAttribute("user") != null){
+		%><p>aaaaaa </p><%
+	}else{
+		%>bbbb<%
+	}
+	
+%>
 </body>
 </html>

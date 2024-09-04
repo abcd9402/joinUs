@@ -38,6 +38,9 @@ public class UserController {
 	}
 	
 	
+	
+	
+	
 	//240903 유저 이미지 업로드 함수
 	@PostMapping("/upload/image")
 	@ResponseBody
@@ -76,7 +79,7 @@ public class UserController {
 		String idCHk;
 		System.out.println("id: "+userId);
 		
-		UserVO uVO = UService.findId(userId);
+		UserVO uVO = UService.idCheck(userId);
 		idCHk =uVO.getUserId();
 		System.out.println(uVO);
 		

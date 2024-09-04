@@ -12,5 +12,9 @@ public class UserVO {
 	private String userImage;
 	
 	
+	private int addressNumber; 
+	private String address; 
+	private String addressDetail;
+	
 
 }
