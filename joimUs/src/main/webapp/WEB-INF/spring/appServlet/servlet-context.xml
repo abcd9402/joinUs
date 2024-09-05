@@ -25,6 +25,23 @@
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean>
 	
+	
+	<beans:bean id="loginInterceptor" class="co.jyy.project.interceptor.loginInterceptor"/>
+	
+	
+	<interceptors>
+	
+	<!-- 로그인 관련 인터셉터 -->
+		<interceptor>
+			<mapping path="/user/profile"/>
+			<mapping path="/mypage/*"/>
+			<mapping path="/blog/*"/>
+			<exclude-mapping path="/blog/blogmain"/>
+			<exclude-mapping path="/blog/blogdetail"/> 
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	
+	</interceptors>
 	<context:component-scan base-package="co.jyy.project" />
 	
 	

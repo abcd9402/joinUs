@@ -92,29 +92,34 @@
 					type="password" name="password" id="password" class="form-control"
 					placeholder="비밀번호" required>
 			</div> -->
-			<%-- <div class="mb-3">
-				<img src="${user.userImage}" style="width:150px;height:150px;left:50px; margin-left:1px;" /> 
-			</div>
-			
+			<div class="mb-3">
 			<div class="form-group row">
 				<div class="col-sm-7">
-					<label for="inputemail" class="sr-only">${user.userId}님</label> 
-					<h1 class="h3 mb-1 font-weight-normal">${user.userId}님</h1>		
+					<img src="${user.userImage}" style="width:150px;height:150px;left:50px; margin-left:1px;" />
 				</div>
 				<div class="col-sm-5 pl-1" style="float: right;">
-					<button class="btn btn-ls btn-primary btn-block" id="sendMailBtn" type="button"
-						onclick="sendMail()">로그아웃</button>
+				
+					<h1 class="h4 mt-3 font-weight-normal">${user.userId}님 </h1>		
+				
+					<button class="btn btn-sm btn-primary btn-block mt-3" id="sendMailBtn" type="button" 
+							onclick="logout()">상품보기</button>
+					<button class="btn btn-sm btn-primary btn-block mt-3" id="sendMailBtn" type="button" 
+							onclick="logout()">판매하기</button>
 				</div>
-			</div> --%>
+			</div>
 			<div class="form-group row">
+				<button class="btn btn-ls btn-primary btn-block" id="sendMailBtn" type="button"
+					onclick="logout()">로그아웃</button>
+			</div> 
+			<%-- <div class="form-group row">
 				<div class="col-sm-7">
 					<img src="${user.userImage}" style="width:150px;height:150px;left:50px; margin-left:1px;" /> 
 				</div>
 					<h1 class="h4 mt-4 mb-1 font-weight-normal">${user.userId}님<br><br>환영합니다 </h1>
 					<button class="btn btn-ls btn-primary btn-block mt-3" id="sendMailBtn" type="button"
-						onclick="logout()">로그아웃</button>		
+						onclick="logout()">로그아웃</button> 		
 				
-			</div>
+			</div>--%>
 			
 
 		</form>

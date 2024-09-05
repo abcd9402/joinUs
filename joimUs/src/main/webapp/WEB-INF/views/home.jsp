@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" %>
+<%@include file="/WEB-INF/views/login/login.jsp"%>
 <html>
 <head>
 	<title>Home</title>
