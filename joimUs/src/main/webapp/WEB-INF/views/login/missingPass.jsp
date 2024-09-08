@@ -52,6 +52,8 @@
 <!-- 함수 파일 -->
 <script src="/resources/js/login.js"></script>
 
+<%@include file="../includes/header.jsp"%>
+
 <main>
 <section class="container">
 
@@ -98,3 +100,7 @@
 </section>
 
 </main>
+
+
+
+<%@include file="../includes/footer.jsp"%>

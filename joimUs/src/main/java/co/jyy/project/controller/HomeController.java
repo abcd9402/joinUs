@@ -1,4 +1,4 @@
-package co.jyy.project;
+package co.jyy.project.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -11,13 +11,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import co.jyy.project.service.BannerService;
+import co.jyy.project.service.UserService;
+import lombok.RequiredArgsConstructor;
+
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	private final BannerService bService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -33,7 +40,10 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		// 배너이미지
+		model.addAttribute("bannerImg", bService.bannerMain());
+		
+		return "main";
 	}
 	
 }

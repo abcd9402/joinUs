@@ -24,6 +24,9 @@
 <!-- 함수 파일 -->
 <script src="/resources/js/Join.js"></script>
 
+
+<%@include file="../includes/header.jsp"%>
+
 <!-- <link href="/resources/css/Join.css" rel="stylesheet"> -->
 
 
@@ -142,9 +145,13 @@
 				<div class="text-center mt-3">
 				<input type="submit" id="confirm" hidden/>
 					<button class="btn btn-lg btn-primary" type="button" onclick="joinConfirm()">회원가입</button>
-					<button class="btn btn-lg btn-primary" type="reset">취소</button>
+					<button class="btn btn-lg btn-primary" type="reset" onclick="location.href='/'">취소</button>
 				</div>				
 			</form>
 		</div>
 	</section>
 </main>
+
+
+
+<%@include file="../includes/footer.jsp"%>

@@ -4,12 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.jyy.project.VO.UserVO;
+import co.jyy.project.service.BannerService;
 import co.jyy.project.service.UserService;
 import lombok.RequiredArgsConstructor;
 
@@ -18,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class loginController {
 
 	private final UserService uService;
+	private final BannerService bService;
 	
 	
 	@PostMapping("/join/join")
@@ -94,7 +97,7 @@ public class loginController {
 	//로그인
 	@PostMapping("/login/login")
 	@ResponseBody
-	public String login(HttpServletRequest request) {
+	public String login(HttpServletRequest request, Model model) {
 		System.out.println("로그인");
 		
 		String userId = request.getParameter("userId");
@@ -110,7 +113,7 @@ public class loginController {
 		}else if(uVO.getPassword().equals(password)) {
 			
 			result = "ok";
-			
+			model.addAttribute("bannerImg", bService.bannerMain());
 			System.out.println(uVO+"2");
 		}else {
 			System.out.println(uVO+"3");
@@ -123,7 +126,7 @@ public class loginController {
 	
 	//로그인 성공
 	@PostMapping("/login/ok")
-	public String loginok(HttpServletRequest request,HttpSession session) {
+	public String loginok(HttpServletRequest request,HttpSession session,Model model) {
 			System.out.println("로그인");
 			
 			String userId = request.getParameter("userId");
@@ -133,7 +136,9 @@ public class loginController {
 			uVO = uService.login(userId,password);
 			session.setAttribute("user", uVO);
 			
-			return "/home";
+			model.addAttribute("bannerImg", bService.bannerMain());
+			
+			return "/main";
 		}
 	
 	//로그아웃
