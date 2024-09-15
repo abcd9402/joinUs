@@ -73,5 +73,14 @@
 	</select>
 	
 	
+	<select id="userAddress" resultType="co.jyy.project.VO.AddressVO">
+		<![CDATA[
+		select addressNumber,address,addressDetail,userId
+		from addressTable
+		where userId = #{userId}
+			and rownum<2
+		]]>
+	</select>
+	
 
 </mapper>

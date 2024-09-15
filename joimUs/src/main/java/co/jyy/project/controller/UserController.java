@@ -109,7 +109,7 @@ public class UserController {
 		
 		System.out.println("해치웟나?");
 		
-		return "/join/join";
+		return "/login/login";
 	} 
 	
 }

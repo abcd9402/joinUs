@@ -87,6 +87,14 @@ public class UserDAOImpl  implements UserDAO{
 		}
 		return uVO;
 	}
+
+	@Override
+	public AddressVO userAddress(UserVO UVO) {
+		
+		AddressVO AVO = UMapper.userAddress(UVO);
+		
+		return AVO;
+	}
 	
 	
 	

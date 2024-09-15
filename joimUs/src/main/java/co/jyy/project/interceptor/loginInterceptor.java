@@ -1,5 +1,6 @@
 package co.jyy.project.interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,8 @@ public class loginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("user") == null) {
-			response.sendRedirect("/login/login");
+			RequestDispatcher rq = request.getRequestDispatcher("/login");
+			rq.forward(request, response); 
 			return false;
 		}
 		else {

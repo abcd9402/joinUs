@@ -30,4 +30,7 @@ public interface UserService {
 	
 	//로그인
 	public UserVO login(String userId,String password);
+	
+	
+	public AddressVO userAddress(UserVO UVO);
 }

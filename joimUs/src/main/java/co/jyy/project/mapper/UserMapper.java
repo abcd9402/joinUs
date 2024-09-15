@@ -20,4 +20,6 @@ public interface UserMapper {
 	
 	public UserVO login(String userId,String password);
 	
+	public AddressVO userAddress(UserVO UVO);
+	
 }

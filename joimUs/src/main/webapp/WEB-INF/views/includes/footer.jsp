@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<footer class="bg-dark text-light" style="position : fixed; bottom : 0; width:100%;">
+<footer class="bg-dark text-light" style="position : relative; transform:translateY(0%); bottom : 0; width:100%;">
 	<div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
 		<p class="col-md-4 mb-0">Join Us</p>
 		<a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"><img src="/resources/image/images/logo.png" width="100"></a>

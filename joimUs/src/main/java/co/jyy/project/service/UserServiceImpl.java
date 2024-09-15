@@ -68,6 +68,14 @@ public class UserServiceImpl implements UserService {
 		 uVO =UDao.login(userId,password);
 		return uVO;
 	}
+
+
+	@Override
+	public AddressVO userAddress(UserVO UVO) {
+		AddressVO AVO = UDao.userAddress(UVO); 
+		
+		return AVO;
+	}
 	
 	
 }

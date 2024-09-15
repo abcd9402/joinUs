@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.jyy.project.mapper.BoardMapper">
+
+	<select id="search" resultType="co.jyy.project.VO.BoardVO">
+		
+	</select>
+	
+	<insert id="boardInsert">
+		insert into boardTable(
+			userId, boardTitle, boardContent,
+			boardCategory, boardStatus, boardPlace,
+			addrssX, addrssY, reservationDate,
+			reservationTime
+		)values(
+			#{userId}, #{boardTitle}, #{boardContent}, 
+			#{boardCategory}, #{boardStatus},#{boardPlace},
+			#{addressX},#{addressY},#{reservationDate},
+			#{reservationTime}
+		)
+	</insert>
+	
+	<select id="boardList" resultType="co.jyy.project.VO.BoardVO">
+		select * 
+		from boardTable
+		where boardStatus != 'end'
+		<if test="category != '' and category != null">
+			and boardCategory = #{category}
+		</if>
+		<if test="keyword != '' and keyword != null">
+			and (boardTitle like '%'||#{keyword}||'%' or userId like '%'||#{keyword}||'%') 
+		</if>
+		order by boardNum desc
+	</select>
+
+	<delete id="boardDel">
+		delete boardTable
+		where boardNum = #{num}
+	</delete>
+	
+	
+	<select id="applyList" resultType="co.jyy.project.VO.ApplyVO">
+		select applyNum,  userId,  applyId,
+			boardNum, applyContent,  applyStatus
+		from applyTable
+		where boardNum like #{param1} and applyStatus like '대기' and userId like #{param2}
+		
+	</select> 
+	
+	<select id="selectBoard" resultType="co.jyy.project.VO.BoardVO">
+	<![CDATA[
+		select userId, boardTitle, boardContent,
+			boardCategory, boardStatus, boardPlace,
+			addrssX, addrssY, reservationDate,
+			reservationTime,  boardNum
+		from BoardTable
+		where boardNum like #{num}
+			and rownum <2
+		]]> 
+	</select>
+	
+	<update id="rejectApply">
+		update applyTable
+		set
+			applyStatus = '거절'
+		where
+			boardNum = #{param2} and applyId = #{param1}
+	</update>
+	
+	
+	<select id="selectApply" resultType="co.jyy.project.VO.ApplyVO">
+	<![CDATA[
+		select applyNum,  userId,  applyId,
+				boardNum, applyContent, applyStatus
+		from ApplyTable
+		where boardNum like #{boardNum}
+			and applyId like #{applyId}
+			and rownum <2
+		]]> 
+	</select>
+	
+	
+	<insert id="insertApply">
+		insert into ApplyTable(
+			userId,  applyId,  boardNum, applyContent
+		)values(
+			#{userId},  #{applyId},  #{boardNum},  #{applyContent}
+		)
+	</insert>
+	
+	<update id="endBoard">
+		update boardTable 
+		set	boardStatus = 'end'
+		where boardNum = #{num}
+	</update>
+	
+	<update id="endApply">
+		update applyTable
+		set applyStatus = '거절'
+		where boardNum != #{param2} 
+			and applyId != #{param1}
+	</update>
+	
+	<update id="approveApply">
+		update applyTable
+		set applyStatus = '승인'
+		where boardNum = #{param2} 
+			and applyId = #{param1}
+	</update>
+
+</mapper>

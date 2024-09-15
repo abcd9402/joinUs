@@ -19,4 +19,6 @@ public interface UserDAO {
 	public UserVO sendMail(String userId,String name,String mail);
 	
 	public UserVO login(String userId,String password);
+	
+	public AddressVO userAddress(UserVO UVO);
 }

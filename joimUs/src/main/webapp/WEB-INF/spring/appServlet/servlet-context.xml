@@ -26,19 +26,18 @@
 	</beans:bean>
 	
 	
-	<beans:bean id="loginInterceptor" class="co.jyy.project.interceptor.loginInterceptor"/>
+	<!-- <beans:bean id="loginInterceptor" class="co.jyy.project.interceptor.loginInterceptor"/> -->
 	
 	
 	<interceptors>
 	
 	<!-- 로그인 관련 인터셉터 -->
 		<interceptor>
-			<mapping path="/user/profile"/>
-			<mapping path="/mypage/*"/>
-			<mapping path="/blog/*"/>
-			<exclude-mapping path="/blog/blogmain"/>
-			<exclude-mapping path="/blog/blogdetail"/> 
-			<beans:ref bean="loginInterceptor"/>
+			
+			<mapping path="/board/list"/>
+			
+			 
+			<beans:bean id="loginInterceptor" class="co.jyy.project.interceptor.loginInterceptor"/>
 		</interceptor>
 	
 	</interceptors>
