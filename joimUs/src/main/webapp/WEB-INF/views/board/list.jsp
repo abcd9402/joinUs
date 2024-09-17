@@ -9,6 +9,7 @@
 <%@ include file="../modal/boardDel.jsp"%>
 <%@ include file="../modal/applyList.jsp"%>
 <%@ include file="../modal/apply.jsp"%>
+<%@ include file="../modal/applyInfo.jsp"%>
 
 <main>
 	<section class="d-flex" style="padding-top:10px;">

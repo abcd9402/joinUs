@@ -3,14 +3,7 @@
 
 <mapper namespace="co.jyy.project.mapper.UserMapper">
 
-	<select id="User_Test" resultType="co.jyy.project.VO.UserVO">
-		<![CDATA[
-		select *
-		from Test_Table
-		where ROWNUM<2
-		]]>
-		
-	</select>
+	
 	
 	
 	<select id="idCheck" resultType="co.jyy.project.VO.UserVO">

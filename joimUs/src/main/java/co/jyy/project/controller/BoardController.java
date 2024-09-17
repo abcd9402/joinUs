@@ -209,7 +209,31 @@ public class BoardController {
 		result = "success";
 		return result;
 	}
+
 	
 	
-	
+	@RequestMapping(value="board/applyInfo", method=RequestMethod.POST , produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public String applyInfo(HttpServletRequest request, Model m) throws Exception {
+		
+		String result = null;
+		
+		String id = request.getParameter("id");
+		
+		UserVO UVO = BService.applyInfo(id);
+		String[] answer = {};
+        answer = UVO.getAddress().split(" ");
+        UVO.setAddress(answer[0]+" "+answer[1]);
+		
+		
+		ObjectMapper mapper = new ObjectMapper();
+        String resultJson = mapper.writeValueAsString(UVO);
+		
+		
+		return resultJson;
+		
+		
+	}
+
 }
+

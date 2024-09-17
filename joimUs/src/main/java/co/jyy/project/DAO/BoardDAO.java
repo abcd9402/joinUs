@@ -5,6 +5,7 @@ import java.util.List;
 import co.jyy.project.VO.ApplyVO;
 import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.SearchVO;
+import co.jyy.project.VO.UserVO;
 
 public interface BoardDAO {
 	
@@ -32,5 +33,7 @@ public interface BoardDAO {
 	public void endApply(String name,int num);
 	
 	public void endBoard(int num);
+	
+	public UserVO applyInfo(String id);
 	
 }

@@ -2,7 +2,7 @@
 /* 240911  매치 페이지 JS */
 
 function showModal(name){
-	
+	console.log(name);
 	$(name).modal('show');		
 }
 
@@ -232,7 +232,7 @@ function applyList(num){
 		dataJSON.forEach(apply => {
             const row = document.createElement('tr');
             row.innerHTML = `<td class="align-middle">`+ i++ +`</td>
-								<td class="align-middle">${apply.applyId}</td>
+								<td class="align-middle"><a href="#" onclick="applyInfo('${apply.applyId}')">${apply.applyId}</a></td>
 								<td class="text-left align-middle">
 									${apply.applyContent}<br>
 								</td>
@@ -335,4 +335,30 @@ function approve(name,num){
 		}
 	});
 	
+}
+
+function applyInfo(id){
+	console.log(id);
+	
+	$.ajax({
+		url : "/board/applyInfo",
+		type : "POST",
+		data : {
+			"id" : id, 
+		},
+		success: function(data){
+			console.log(data);
+			console.log(data.userId);
+			
+			
+			document.querySelector('#apId').textContent = '아이디: '+data.userId;
+			document.querySelector('#apGender').textContent = '성별: '+data.gender;
+			document.querySelector('#apMail').textContent = '메일: '+data.mail;
+			document.querySelector('#apAd').textContent = '주소: '+data.address;
+			document.querySelector('#applyImg').src = data.userImage;
+				$('#applyIn').modal('show');
+			
+			
+		}
+	});
 }

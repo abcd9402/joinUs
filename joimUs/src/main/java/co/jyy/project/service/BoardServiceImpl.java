@@ -9,6 +9,7 @@ import co.jyy.project.DAO.BoardDAO;
 import co.jyy.project.VO.ApplyVO;
 import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.SearchVO;
+import co.jyy.project.VO.UserVO;
 import lombok.RequiredArgsConstructor;
 
 @Repository
@@ -106,6 +107,14 @@ public class BoardServiceImpl implements BoardService {
 		
 		BDAO.endBoard(num);
 		
+	}
+
+	@Override
+	public UserVO applyInfo(String id) {
+
+		UserVO UVO = BDAO.applyInfo(id);
+		
+		return UVO;
 	}
 
 }

@@ -108,5 +108,15 @@
 		where boardNum = #{param2} 
 			and applyId = #{param1}
 	</update>
+	
+	<select id="applyInfo" resultType="co.jyy.project.VO.UserVO">
+		select a.userId, a.password, a.name, 
+				a.gender, a.mail, a.userImage, 
+				b.addressNumber, b.address, b.addressDetail 
+		from userTable a left 
+			outer join addressTable b 
+		on a.userId like b.userId 
+		where a.userId like #{param1}
+	</select>
 
 </mapper>

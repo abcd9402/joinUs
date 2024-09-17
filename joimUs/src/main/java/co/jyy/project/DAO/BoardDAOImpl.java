@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import co.jyy.project.VO.ApplyVO;
 import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.SearchVO;
+import co.jyy.project.VO.UserVO;
 import co.jyy.project.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 
@@ -105,6 +106,15 @@ public class BoardDAOImpl implements BoardDAO{
 
 		BMapper.endBoard(num);
 		
+	}
+
+	@Override
+	public UserVO applyInfo(String id) {
+
+		UserVO UVO = BMapper.applyInfo(id);
+				
+		
+		return UVO;
 	}
 
 }
