@@ -201,7 +201,7 @@ function matchList(){
 
 function initMain(id){
 	console.log('init');
-	console.log(id);
+	
 	if(id != ""){
 		$.ajax({
 			url : "/login/Main",
@@ -211,18 +211,30 @@ function initMain(id){
 			},
 			success: function(data){
 				if(data != ""){
-					console.log('aaaa');
+					
 					alert("요청이 승낙되었습니다.");
 					var number = Number(data);
 					console.log(typeof number);
 					applyModa(data);
 				}else{
-					console.log('Bbbb');
+						
 				}
 			}
 		});
 	}
 }
 
+function myPage(){
+	
+	$.ajax({
+		url : "/login/myPage",
+		type : "POST",
+		data : {},
+		success: function(data){
+		
+			location.href="/login/myPage";
+		}
+		});
+}
 
 

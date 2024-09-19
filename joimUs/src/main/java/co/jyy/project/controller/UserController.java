@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -111,5 +112,29 @@ public class UserController {
 		
 		return "/login/login";
 	} 
+	
+	@GetMapping("/login/myPage")
+	public String mypa() {
+		return "/login/myPage";
+	}
+	
+	
+	@PostMapping("/login/myPage")
+	@ResponseBody
+	public String myPage(HttpSession session,Model model) {
+		
+		UserVO UVO =(UserVO)session.getAttribute("user");
+		if(UVO.getGender() == "M") {
+			UVO.setGender("남성");
+		}else {
+			UVO.setGender("여성");
+		}
+		model.addAttribute("user",UVO);
+		
+		String result = null;
+		
+		return result;
+	}
+	
 	
 }
