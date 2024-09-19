@@ -156,3 +156,8 @@ function logout(){
 	});
 	
 }
+
+
+function matchList(){
+	location.href="/board/list";
+}

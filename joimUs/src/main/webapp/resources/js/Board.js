@@ -362,3 +362,8 @@ function applyInfo(id){
 		}
 	});
 }
+
+
+
+
+

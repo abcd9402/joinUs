@@ -5,6 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@include file="../views/includes/header.jsp"%>
 
+<script>
+$(document).ready(function(){
+	console.log('aaaaa');
+	
+	
+});
+</script>
 
 
 <div
@@ -15,7 +22,7 @@
 				class="col-xl-5 col-lg-6 mr-auto py-2 text-light order-2 text-center text-lg-left">
 				<h1 class="mb-0 display-4 font-weight-bold">다함께 JoinUS!</h1>
 				<p class="lead mb-3 font-weight-bold"></p>
-				<a class="btn btn-outline-light btn-lg mr-2" href="/user/login">시작하기</a>
+				<a class="btn btn-outline-light btn-lg mr-2" href="/board/list">시작하기</a>
 
 
 
@@ -37,7 +44,7 @@
 									</h1>
 
 									<button class="btn btn-sm btn-primary btn-block mt-3"
-										id="sendMailBtn" type="button" onclick="logout()">매치목록</button>
+										id="sendMailBtn" type="button" onclick="matchList()">매치목록</button>
 									<button class="btn btn-sm btn-primary btn-block mt-3"
 										id="sendMailBtn" type="button" onclick="logout()">정보수정</button>
 								</div>

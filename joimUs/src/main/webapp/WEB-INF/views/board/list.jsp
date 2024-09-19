@@ -48,6 +48,7 @@
 							<input type="hidden" id="boardNum" value="${match.boardNum}"/> 
 							<img src="/resources/image/images/${match.boardCategory}.png" style="cursor:pointer; height:150px;"  
 								data-idx="${match.boardNum}"
+								data-title="${match.boardTitle}"
 								data-position="${match.addressY},${match.addressX}"
 								class="card-img-top">
 							<div class="position-absolute" style="top:10px;left:10px">
@@ -87,160 +88,6 @@
 	</section>
 </main>
 
-<%-- <div class="modal fade" id="modal-info" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="detail-title"></h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				
-				<div class="border mb-3" id="map-detail" style="width:100%;height:200px;"></div>
-
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">개설자</span><span id="detail-id"></span></div>
-				<div class="d-flex">
-					<div class="mr-2"><span class="badge badge-pill badge-primary" style="width:80px;">경기장</span></div>
-					<div id="detail-place"></div>
-				</div>
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">시 간</span><span id="detail-time"></span></div>
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">인 원</span><span id="detail-people"></span></div>
-				<div class="d-flex">
-					<div class="mr-2"><span class="badge badge-pill badge-primary" style="width:80px;">내 용</span></div>
-					<div id="detail-content"></div>
-				</div>
-
-				<form id="myform" name="myform">
-			        <input type="hidden" id="boardNum" name="boardNum" value="">
-			        <input type="hidden" name="userId" value="${user.userId }">
-			        <input type="hidden" name="BOARD_TITLE" value="">
-			        <input type="hidden" name="NOTICE_MSG_USER" value="">
-			        <input type="hidden" name="NOTICE_MSG_PLACE" value="">
-			        <input type="hidden" name="NOTICE_MSG_TIME" value="">
-				
-					<div class="form-group mb-0">
-						<label for="NOTICE_MSG_Content" class="col-form-label">신청내용</label>
-						<input type="text" class="form-control" id="NOTICE_MSG_Content" name="NOTICE_MSG_Content">
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary btn-block" onclick="sendMatch()">신청하기</button>
-			</div>
-		</div>
-	</div>
-</div> --%>
-
-<%-- <div class="modal fade" id="registModal" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">매치 등록하기</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form name="boardReg" id="boardReg">
-					<input type="hidden" name="board_Id" value="${user.user_id}">
-					<input type="hidden" name="board_Sport_Address" value="${user.user_sport_address}">
-					<input type="hidden" name="board_Sport_Playground" value="${user.user_sport_detailaddress}">
-					<input type="hidden" name="board_Sport_Address_X" value="${user.user_sport_address_x}">
-					<input type="hidden" name="board_Sport_Address_Y" value="${user.user_sport_address_y}">
-					<input type="hidden" name="board_Sport_Address_IMG" value="${user.user_sport_address_img}">
-					
-					<div class="form-group mb-1">
-						<label class="col-form-label">경기 장소</label>
-						<div class="font-weight-bold">${user.user_sport_address}</div>
-					</div>
-					<div class="border mb-0" id="map-reg" style="width:100%;height:200px;"></div>
-					<div class="d-flex">
-						<div class="form-group mb-0 w-50 pr-1">
-							<label for="boardCategory" class="col-form-label">종목</label>
-							<select name="boardCategory" id="boardCategory" class="form-control">
-								<option value="">종목선택</option>
-								<option value="movie">영화</option>
-								<option value="musical">뮤지컬</option>
-								<option value="concert">콘서트</option>
-							</select>
-						</div>
-						<div class="form-group mb-0 w-50 pl-1">
-							<label for="board_TotalPeople" class="col-form-label">인원수</label>
-							<input type="number" class="form-control" name="board_TotalPeople" id="board_TotalPeople">
-						</div>
-					</div>
-					<div class="form-group mb-0">
-						<label for="board_ReservationDate" class="col-form-label">경기 시간</label>
-						<div class="d-flex">
-							<div class="w-50 pr-1"><input type="date" class="form-control" name="board_ReservationDate" id="board_ReservationDate"></div>
-							<div class="w-50 pl-1">
-								<select name="board_ReservationTime" class="form-control">
-									<option value="">시간 선택</option>
-									<option value="8">8시</option>
-									<option value="9">9시</option>
-									<option value="10">10시</option>
-									<option value="11">11시</option>
-									<option value="12">12시</option>
-									<option value="13">13시</option>
-									<option value="14">14시</option>
-									<option value="15">15시</option>
-									<option value="16">16시</option>
-									<option value="17">17시</option>
-									<option value="18">18시</option>
-									<option value="19">19시</option>
-									<option value="20">20시</option>
-									<option value="21">21시</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group mb-0">
-						<label for="board_Title" class="col-form-label">제목</label>
-						<input type="text" class="form-control" name="board_Title" id="board_Title">
-					</div>
-					<div class="form-group mb-0">
-						<label for="board_Content" class="col-form-label">내용</label>
-						<textarea class="form-control" name="board_Content" id="board_Content"></textarea>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary btn-block" onclick="regMatch()">등록하기</button>
-			</div>
-		</div>
-	</div>
-</div> --%>
-
- <!-- 매칭 삭제modal-->
-<!-- <div class="modal fade" id="modaldel" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" >매칭 삭제</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form id="del" name="del" >
-				<input type="hidden" id="num" class="num" name="BOARD_NUM" />
-				<div class="text-center">
-					<div class="form-check form-check-inline">
-						삭제 하시겠습니까?
-					</div>
-				</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary" onclick="senddel()">삭제</button>
-				<button  onclick="$('#modaldel').modal('hide');" class="btn btn-primary">취소</button>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 
 <!--지도 API-->
@@ -260,7 +107,7 @@
 	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 	var bounds = new kakao.maps.LatLngBounds();
-
+	
 	var imageSize = new kakao.maps.Size(40, 40);
 	var imageOption = {offset: new kakao.maps.Point(20, 0)};
 	var marker_concert = new kakao.maps.MarkerImage('/resources/image/images/concert.png', imageSize, imageOption);
@@ -269,12 +116,14 @@
 	var markers = [];
 	var positions = [
 <c:forEach var="match" items="${blist}">
-		{
+		{	
 			idx: ${match.boardNum},
+			user: '${user.userId}',
+			boardUser: '${match.userId}',
 			title: '${match.boardPlace}',
 			icon: marker_${match.boardCategory},
-			image: '/resources/image/images/'+${match.boardCategory}+'.png',
-			latlng: new kakao.maps.LatLng(${match.addressY}, ${match.addressX})
+			image: '/resources/image/images/'+'${match.boardCategory}'+'.png',
+			latlng: new kakao.maps.LatLng(${match.addressY}, ${match.addressX}),
 		},
 </c:forEach>
 	];
@@ -287,20 +136,21 @@
 		});
 
 		bounds.extend(positions[i].latlng);
-
+		console.log(positions[i]);
 		var infowindow = new kakao.maps.InfoWindow({
 			content : '<div class="text-center"><img width="200" src="' + positions[i].image + '"><div class="font-weight-bold p-1 text-truncate">' + positions[i].title + '</div></div>'
 		});
 
 		kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
 		kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-		kakao.maps.event.addListener(marker, 'click', makeClickListener(positions[i].idx));
+		kakao.maps.event.addListener(marker, 'click', makeClickListener(positions[i].idx, positions[i].user, positions[i].boardUser));
 
 		markers.push(marker);
 	}
 	if (positions.length > 0) map.setBounds(bounds);
 
 	function makeOverListener(map, marker, infowindow) {
+		
 		return function() {
 			infowindow.open(map, marker);
 		};
@@ -312,9 +162,17 @@
 		};
 	}
 
-	function makeClickListener(idx) {
+	function makeClickListener(idx,user,boarder) {
 		return function() {
-			showInfo(idx);
+			
+			console.log(boarder);
+			console.log(user);
+			if(boarder == user){
+				applyList(idx);
+			}else{
+				applyModal(idx);
+			}
+			
 			tmpwindow.close();
 		};
 	}
@@ -324,175 +182,21 @@
 		$('.card-img-top').on('click', function(){
 			var position = $(this).data('position').split(',');
 			var latlng = new kakao.maps.LatLng(position[0], position[1])
-
+			console.log($(this).data(''));
 			tmpwindow.close();
 			tmpwindow = new kakao.maps.InfoWindow({
 				position: latlng,
-				content : '<div class="text-center"><img width="200" src="' + $(this).prop("src") + '"><div class="font-weight-bold p-1 text-truncate">' + $(this).data('playground') + '</div></div>'
+				content : '<div class="text-center"><img width="200" src="' + $(this).prop("src") + '"><div class="font-weight-bold p-1 text-truncate">' +  $(this).data('title')  + '</div></div>'
 			});
 			tmpwindow.open(map, markers[$(this).data('idx')]);
 
 			if (map.getLevel() >= 3) map.setLevel(3);
 			map.panTo(latlng);
 		});
-	});
+	})
 	
 	
-	// 정보 보여주기
-	function showInfo(num) {
-		<c:if test="${ user.userId eq null }">
-		alert("로그인을 하셔야 이용하실 수 있습니다.");
-		return;
-		</c:if>
-		$.getJSON("/board/viewJson?boardNum="+num, function(data) {
-			
-			$('#map-detail').html('');
-			$('#detail-title').text(data.board_Title);
-			$('#detail-id').text(data.board_Id);
-			$('#detail-place').text(data.board_Sport_Playground + " (주소: " + data.board_Sport_Address + ")");
-			$('#detail-time').text(data.board_ReservationDate + " " + data.board_ReservationTime + "시");
-			$('#detail-people').text(data.board_TotalPeople + "명");
-			$('#detail-content').text(data.board_Content);
-			myform.BOARD_NUM.value = data.board_Num;
-			myform.BOARD_TITLE.value = data.board_Title;
-			myform.NOTICE_MSG_USER.value = data.board_Id;
-			myform.NOTICE_MSG_PLACE.value = data.board_Sport_Playground;
-			myform.NOTICE_MSG_TIME.value = data.board_ReservationDate;
-			
-			$('#modal-info').modal('show').on('shown.bs.modal', function (event) {
-				var mapPosition = new kakao.maps.LatLng(data.board_Sport_Address_Y, data.board_Sport_Address_X);
-				var mapDetailContainer = document.getElementById('map-detail');
-				var mapOption = { center: mapPosition, level: 3 };
-
-				var map = new kakao.maps.Map(mapDetailContainer, mapOption);
-				var mapTypeControl = new kakao.maps.MapTypeControl();
-				map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-		
-				var marker = new kakao.maps.Marker({position: mapPosition});
-				marker.setMap(map);
-			});
-		});
-	}
-
-   /*  function sendMatch() {
-    	if (myform.NOTICE_MSG_Content.value == "") {
-    		alert("신청 내용을 입력해 주세요.");
-    		myform.NOTICE_MSG_Content.focus();
-    		
-    		return;
-    	} 
-    	
-    	$.post("/match/apply_suc", $("#myform").serialize(), function(data) {
-	    	if (data == "suc") {
-	    		alert("성공적으로 신청하였습니다.");
-	    		$('#modal-info').modal('hide');
-	    		$('#map-detail').html('');
-	    		myform.reset();
-	    	} else if (data == "exist") {
-	    		alert("이미 신청하신 매치입니다.");
-	    		$('#modal-info').modal('hide');
-	    		$('#map-detail').html('');
-	    	} else if (data == "no_point") {
-	    		alert("볼이 부족하여 매치를 신청하실 수 없습니다. 볼을 충전해 주세요.");
-	    		$('#modal-info').modal('hide');
-	    		$('#map-detail').html('');
-	    	} else {
-	    		alert("오류가 발생하였습니다.");
-	    	}
-	    });	
-    } */
-
-	function showReg() {
-	/* 	<c:if test="${ user.userId eq null }">
-		alert("로그인을 하셔야 이용하실 수 있습니다.");
-		return;
-		</c:if> */
-		$('#modal-reg').modal('show').on('shown.bs.modal', function (event) {
-			var mapPosition = new kakao.maps.LatLng('${match.addressY}', '${match.addressX}');
-			var mapContainer = document.getElementById('map-reg'),
-			mapOption = { center: mapPosition, level: 3 };
 	
-			var map = new kakao.maps.Map(mapContainer, mapOption);
-			var mapTypeControl = new kakao.maps.MapTypeControl();
-			map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-	
-			var marker = new kakao.maps.Marker({position: mapPosition});
-			marker.setMap(map);
-			
-			var infowindow = new kakao.maps.InfoWindow({
-				content : '<div class="text-center"><div class="font-weight-bold p-1 text-truncate">${address.addressDetail}</div></div>'
-			});
-			
-			infowindow.open(map, marker);
-		});
-	}
-
-	/* function regMatch() {
-		if (boardReg.board_Category.value == "") {
-			alert("종목을 선택해 주세요.");
-			return;
-		} 
-		
-		if (boardReg.board_TotalPeople.value == "") {
-			alert("인원수를 입력해 주세요.");
-			return;
-		} 
-		
-		if (boardReg.board_ReservationDate.value == "") {
-			alert("경기 날짜를 입력해 주세요.");
-			return;
-		} 
-		
-		if (boardReg.board_ReservationTime.value == "") {
-			alert("경기 시간을 입력해 주세요.");
-			return;
-		} 
-
-		if (boardReg.board_Title.value == "") {
-			alert("제목을 입력해 주세요.");
-			return;
-		} 
-
-		if (boardReg.board_Content.value == "") {
-			alert("내용을 입력해 주세요.");
-			return;
-		} 
-		
-		$.post("/board/Board_Insert", $("#boardReg").serialize(), function(data) {
-			if (data == "success") {
-				alert("등록하였습니다.");
-				location.href = "./list";
-			} else if (data == "no_point") {
-				alert("볼이 부족하여 매치를 만들 수 없습니다. 포인트를 충전해 주세요.");
-				myform.reset();
-				$('#modal-reg').modal('hide');
-			} else {
-				alert("오류가 발생하였습니다.");
-				myform.reset();
-			}
-		});
-	} */
-	
-	/* function popupDel(num){
-		del.num.value = num;
-		
-		$('#modaldel').modal('show');		
-	} */
-	
-	/* function senddel(){
-		$.post("match/boardDel",$("#del").serialize(),function(data){
-			if(data == 'suc'){
-				location.href = "./list";
-			}else{
-				alert("오류가 발생하였습니다.");
-				location.href = "./list";
-			}
-		});
-	}	 */
-	
-	/* function showRegist(){
-		$('#registModal').modal('show');		
-	} */
 </script>
 
 <%@include file="../includes/footer.jsp"%>

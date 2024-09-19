@@ -43,12 +43,13 @@
 								</div>
 								
 								<div class="form-group row"></div>
+							
 							</div>
 						
 					</div>
 				<!-- </section> -->
 			<div class="modal-footer">
-				
+					<button type="button" class="btn btn-primary btn-block" onclick="modalClose(applyIn)">닫기</button>
 			</div>
 		</div>
 	</div>

@@ -14,6 +14,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="/resources/js/jquery.ellipsis.min.js"></script>
+<!-- <script src="/resources/js/jquery.ellipsis.min.js"></script> -->
 </body>
 </html>

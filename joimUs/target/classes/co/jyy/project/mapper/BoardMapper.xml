@@ -11,7 +11,7 @@
 		insert into boardTable(
 			userId, boardTitle, boardContent,
 			boardCategory, boardStatus, boardPlace,
-			addrssX, addrssY, reservationDate,
+			addressX, addressY, reservationDate,
 			reservationTime
 		)values(
 			#{userId}, #{boardTitle}, #{boardContent}, 
@@ -52,7 +52,7 @@
 	<![CDATA[
 		select userId, boardTitle, boardContent,
 			boardCategory, boardStatus, boardPlace,
-			addrssX, addrssY, reservationDate,
+			addressX, addressY, reservationDate,
 			reservationTime,  boardNum
 		from BoardTable
 		where boardNum like #{num}
