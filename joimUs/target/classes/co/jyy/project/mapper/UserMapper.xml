@@ -75,5 +75,37 @@
 		]]>
 	</select>
 	
+	<select id="selectApply" resultType="co.jyy.project.VO.ApplyVO">
+		<![CDATA[
+		select applyNum, userId, boardNum, 
+				applyContent, applyStatus 
+		from applyTable 
+		where applyId like #{id} 
+			and applyStatus = '승인'
+			and rownum<2
+		]]>
+	</select>
+	
+	<select id="selectBoard" resultType="co.jyy.project.VO.BoardVO">
+	<![CDATA[
+		select userId, boardTitle, boardContent,
+			boardCategory, boardStatus, boardPlace,
+			addressX, addressY, reservationDate,
+			reservationTime,  boardNum
+		from BoardTable
+		where boardNum like #{num}
+			and rownum <2
+		]]> 
+	</select>
+
+	<update id="updateApply">
+		update applyTable
+		set
+			applyStatus = '완료'
+		where
+			applyNum like #{num}
+	</update>
+
+
 
 </mapper>

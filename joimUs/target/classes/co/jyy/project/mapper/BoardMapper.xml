@@ -118,5 +118,7 @@
 		on a.userId like b.userId 
 		where a.userId like #{param1}
 	</select>
+	
+	
 
 </mapper>

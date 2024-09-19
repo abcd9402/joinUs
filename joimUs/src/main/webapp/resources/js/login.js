@@ -156,8 +156,73 @@ function logout(){
 	});
 	
 }
-
+function applyModa(num){
+	
+	
+	$.ajax({
+		url : "/board/apply",
+		type : "GET",
+		data : {
+			"num" : num,
+		},
+		success: function(data){
+			if(data == ""){
+				alert("오류");
+			}else{
+/*				let dataJSON = JSON.parse(data)*/
+				let dataJSON = data;
+				console.log(dataJSON);
+				
+				myform.boardNum.value = dataJSON.boardNum;
+				myform.userId.value = dataJSON.userId;
+				myform.boardTitle.value = dataJSON.boardTitle;
+				$('#detail-title').text(dataJSON.boardTitle);
+				$('#detail-id').text(dataJSON.userId);
+				$('#detail-date').text(dataJSON.date);
+				$('#detail-time').text(dataJSON.reservationTime + "시");
+				$('#detail-content').text(dataJSON.boardContent);
+				/*$('#detail-image').src("/resources/image/images/(dataJSON.boardCategory).png");*/
+				detailimage.src = "/resources/image/images/"+(dataJSON.boardCategory)+".png";
+				
+				$('#applyEnd').modal('show');
+				
+				
+			}
+			
+		}
+	});
+	
+}
 
 function matchList(){
 	location.href="/board/list";
 }
+
+
+function initMain(id){
+	console.log('init');
+	console.log(id);
+	if(id != ""){
+		$.ajax({
+			url : "/login/Main",
+			type : "GET",
+			data : {
+				"id": id,
+			},
+			success: function(data){
+				if(data != ""){
+					console.log('aaaa');
+					alert("요청이 승낙되었습니다.");
+					var number = Number(data);
+					console.log(typeof number);
+					applyModa(data);
+				}else{
+					console.log('Bbbb');
+				}
+			}
+		});
+	}
+}
+
+
+

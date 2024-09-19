@@ -4,12 +4,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@include file="../views/includes/header.jsp"%>
+<%@ include file="./modal/applyEnd.jsp"%>
 
 <script>
 $(document).ready(function(){
-	console.log('aaaaa');
-	
-	
+	initMain('${user.userId}');
 });
 </script>
 
@@ -46,7 +45,7 @@ $(document).ready(function(){
 									<button class="btn btn-sm btn-primary btn-block mt-3"
 										id="sendMailBtn" type="button" onclick="matchList()">매치목록</button>
 									<button class="btn btn-sm btn-primary btn-block mt-3"
-										id="sendMailBtn" type="button" onclick="logout()">정보수정</button>
+										id="sendMailBtn" type="button" onclick="myPage()">정보수정</button>
 								</div>
 							</div>
 							<div class="form-group row">

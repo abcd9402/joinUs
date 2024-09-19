@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import co.jyy.project.DAO.UserDAO;
 import co.jyy.project.VO.AddressVO;
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 import lombok.RequiredArgsConstructor;
 
@@ -75,6 +77,15 @@ public class UserServiceImpl implements UserService {
 		AddressVO AVO = UDao.userAddress(UVO); 
 		
 		return AVO;
+	}
+
+
+	@Override
+	public BoardVO selectApply(String id) {
+
+		BoardVO BVO = UDao.selectApply(id);
+		
+		return BVO;
 	}
 	
 	

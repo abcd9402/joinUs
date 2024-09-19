@@ -3,6 +3,8 @@ package co.jyy.project.service;
 import org.springframework.stereotype.Service;
 
 import co.jyy.project.VO.AddressVO;
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 
 @Service
@@ -33,4 +35,6 @@ public interface UserService {
 	
 	
 	public AddressVO userAddress(UserVO UVO);
+	
+	public BoardVO selectApply(String id);
 }

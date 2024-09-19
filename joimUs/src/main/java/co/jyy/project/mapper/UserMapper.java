@@ -1,6 +1,8 @@
 package co.jyy.project.mapper;
 
 import co.jyy.project.VO.AddressVO;
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 
 public interface UserMapper {
@@ -19,7 +21,13 @@ public interface UserMapper {
 	public UserVO sendMail(String userId,String name,String mail);
 	
 	public UserVO login(String userId,String password);
-	
+
 	public AddressVO userAddress(UserVO UVO);
+	
+	public ApplyVO selectApply(String id);
+	
+	public void updateApply(int num);
+	
+	public BoardVO selectBoard(int num);
 	
 }

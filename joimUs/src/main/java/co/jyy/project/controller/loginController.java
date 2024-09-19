@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 import co.jyy.project.service.BannerService;
 import co.jyy.project.service.UserService;
@@ -153,5 +155,21 @@ public class loginController {
 		
 		return result;
 	}
+	
+	
+	@GetMapping("/login/Main")
+	@ResponseBody	
+	public String initMain(HttpServletRequest request) {
 		
+		String result="";
+		String id = request.getParameter("id");
+		BoardVO BVO = uService.selectApply(id); 
+		if(BVO == null) {
+			
+		}else {
+			result= Integer.toString(BVO.getBoardNum());
+		}
+		
+		return result;
+	}
 }

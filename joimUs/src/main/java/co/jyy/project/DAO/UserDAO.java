@@ -1,6 +1,8 @@
 package co.jyy.project.DAO;
 
 import co.jyy.project.VO.AddressVO;
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 
 public interface UserDAO {
@@ -21,4 +23,10 @@ public interface UserDAO {
 	public UserVO login(String userId,String password);
 	
 	public AddressVO userAddress(UserVO UVO);
+	
+	public BoardVO selectApply(String id);
+	
+	public void updateApply(int num);
+	
+	public BoardVO selectBoard(int num);
 }

@@ -3,6 +3,8 @@ package co.jyy.project.DAO;
 import org.springframework.stereotype.Repository;
 
 import co.jyy.project.VO.AddressVO;
+import co.jyy.project.VO.ApplyVO;
+import co.jyy.project.VO.BoardVO;
 import co.jyy.project.VO.UserVO;
 import co.jyy.project.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
@@ -94,6 +96,37 @@ public class UserDAOImpl  implements UserDAO{
 		AddressVO AVO = UMapper.userAddress(UVO);
 		
 		return AVO;
+	}
+
+	@Override
+	public BoardVO selectApply(String id) {
+
+		BoardVO BVO =null;
+		ApplyVO applyVO = UMapper.selectApply(id);
+		System.out.println("aaa");
+		if(applyVO != null ) {
+			
+			this.updateApply(applyVO.getApplyNum());
+			System.out.println("bbb");
+			BVO = this.selectBoard(applyVO.getBoardNum());
+		}
+		
+		return BVO;
+	}
+
+	@Override
+	public void updateApply(int num) {
+		
+		UMapper.updateApply(num);
+		
+	}
+
+	@Override
+	public BoardVO selectBoard(int num) {
+		
+		
+		BoardVO BVO = UMapper.selectBoard(num);
+		return BVO;
 	}
 	
 	
