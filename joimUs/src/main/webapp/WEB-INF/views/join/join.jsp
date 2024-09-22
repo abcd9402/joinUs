@@ -35,7 +35,7 @@
 		<div class="text-center mb-5" >
 			<form class="form-join border shadow" action="/join/confirm" method="post" >
 				<!-- <img class="mb-4" src="/resources/images/logo.png" height="72"> -->
-				<h1 class="h3 mb-3 font-weight-normal" style="COLOR:#4174D9;">회원가입</h1>
+				<h1 class="h3 mb-3 font-weight-normal" >회원가입</h1>
 				<div class="form-group row" style="position:relative;">
 					<label for="staticEmail" class="col-sm-2 col-form-label">아이디</label>
 					<div class="col-sm-4">

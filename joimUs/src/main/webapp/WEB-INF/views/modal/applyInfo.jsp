@@ -34,8 +34,8 @@
 									<div class="col-sm-5 ml-5" style="float:right;">
 										<h1 id="apId" class="h4 mt-3 font-weight-normal" style="float:left;"></h1>
 										<h1 id="apGender" class="h4 mt-3 font-weight-normal" style="float:left;"></h1>
-										<h1 id="apMail" class="h6 mt-3 font-weight-normal" style="float:left; "></h1>
 										<h1 id="apAd" class="h4 mt-3 font-weight-normal" style="float:left;"></h1>
+										<h1 id="apMail" class="h4 mt-3 font-weight-normal" style="float:left; "></h1>
 										
 	
 										

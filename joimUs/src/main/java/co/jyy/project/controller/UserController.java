@@ -124,7 +124,8 @@ public class UserController {
 	public String myPage(HttpSession session,Model model) {
 		
 		UserVO UVO =(UserVO)session.getAttribute("user");
-		if(UVO.getGender() == "M") {
+		System.out.println(UVO.getGender());
+		if(UVO.getGender().equals("M")) {
 			UVO.setGender("남성");
 		}else {
 			UVO.setGender("여성");

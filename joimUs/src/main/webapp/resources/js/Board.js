@@ -109,39 +109,39 @@ function confirmPlace(place){
 	var mapreg = document.getElementById('mapreg');
 	var boardCategory = document.getElementById('boardCategory');
 	
-	if(place == 'gun'){
+	if(place == '건대'){
 		/*addressX.value = 37.5385;
 		addressY.value = 127.0732;*/
 		addressY.value = 37.5385;
 		addressX.value = 127.0732;
-	}else if(place == 'wang'){
+	}else if(place == '왕십리'){
 		addressY.value = 37.5621;
 		addressX.value = 127.0383;
-	}else if(place == 'woung'){
+	}else if(place == '용산'){
 		addressY.value = 37.5302;
 		addressX.value = 126.9638;
-	}else if(place == 'gang'){
+	}else if(place == '강변'){
 		addressY.value = 37.5365;
 		addressX.value = 127.0959;
-	}else if(place == 'hae'){
+	}else if(place == '해오름'){
 		addressY.value = 37.5525;
 		addressX.value = 126.9999;
-	}else if(place == 'gwang'){
+	}else if(place == '광림아트센터'){
 		addressY.value = 37.5244;
 		addressX.value = 127.0246;
-	}else if(place == 'dosan'){
+	}else if(place == '두산아트센터'){
 		addressY.value = 37.5725;
 		addressX.value = 127.001;
-	}else if(place == 'blue'){
+	}else if(place == '블루스퀘어'){
 		addressY.value = 37.5412;
 		addressX.value = 127.0029;
-	}else if(place == 'lg'){
+	}else if(place == 'LG아트센터'){
 		addressY.value = 37.5653;
 		addressX.value = 126.8295;
-	}else if(place == 'woori'){
+	}else if(place == '우리금융아트홀'){
 		addressY.value = 37.518;
 		addressX.value = 127.1252;
-	}else if(place == 'worker'){
+	}else if(place == '워커힐'){
 		addressY.value = 37.5557;
 		addressX.value = 127.1106;
 	}else if(place == ''){
@@ -328,6 +328,7 @@ function approve(name,num){
 			if(data == "success"){
 				alert("승인했습니다.");
 				$('#applyListModal').modal('hide');
+				location.reload();
 			}else{
 				return;
 			}

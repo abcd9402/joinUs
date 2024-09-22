@@ -5,30 +5,7 @@
 <!DOCTYPE html>
 
 <%@include file="../includes/header.jsp"%>
-<!-- <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<head>
-    <link href="../../css/MissingId.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="missingIdWrapper">
-        <h2>ID 찾기</h2>
-        <form method="post" action="login.html" id="missingIdForm">
-            <input type="text" placeholder="성함" name="name"  />
-            <input type="email" placeholder="이메일" name="email" />
-            <div class="missing">
-                <input type="submit" value="ID 찾기" />
-            </div>
-        </form>
-    </div>
-</body>
-</html>
- -->
+
  
  
  <!--0827 제이쿼리 -->
@@ -52,7 +29,7 @@
 
 
 <main>
-    <section class="container">
+    <section class="container" style="padding-bottom:200px; ">
 
       <div class="text-center mb-5">
         <form class="form-signin border shadow" action="/user/findId" method="post">

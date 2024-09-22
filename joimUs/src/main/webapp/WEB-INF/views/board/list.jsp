@@ -40,7 +40,7 @@
 				</div>
 			</form>
 
-			<div class="px-5 pt-0 pb-5">
+			<div class="px-5 pt-0 pb-5" id="boardList">
 				<div class="row">
 					<c:forEach var="match" items="${blist}">
 					<div class="col-xl-4 col-lg-6 col-md-12 mb-3">

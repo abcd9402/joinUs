@@ -42,7 +42,7 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle text-white" href="#" id="navbarDd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<img class="rounded-circle ml-3 mr-1" width="30" src="${user.userImage}" style="margin-top:-9px">
-						<span class="font-weight-bold">${user.name }님</span>
+						<span class="font-weight-bold">${user.userId }님</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDd">
 					    <div class="dropdown-divider"></div>

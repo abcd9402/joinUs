@@ -39,24 +39,7 @@ $(document).ready(function(){
 	$('#img').on("change", function() {
 	
 	console.log(event);
-	/*if (!$(this)[0].files[0]) return;
-	
-	var reader = new FileReader();
-    
-    reader.onload = function(event) {
-        var img = document.createElement("img");
-        img.setAttribute("src", event.target.result);
-        
-        //0826 이미지 변경 시 추가되던거 수정
-        document.querySelector("div#previewImg").innerHTML="";
-        document.querySelector("div#previewImg").appendChild(img);
-        img.style.width='150px';
-        img.style.height='150px';
-        
-    };
 
-    reader.readAsDataURL(event.target.files[0]);
-*/	
 if (!$(this)[0].files[0]) return;
 	
 	var  folder, obj, hidden, datas;

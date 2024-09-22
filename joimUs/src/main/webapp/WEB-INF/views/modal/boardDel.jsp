@@ -20,7 +20,7 @@
 			</div>
 			<div class="modal-body">
 				<form id="boardDelPop" name="boardDelPop" >
-					<input type="hidden1" id="boardNum" class="num" name="boardNum" />
+					<input type="hidden" id="boardNum" class="num" name="boardNum" />
 					<div class="text-center">
 						<div class="form-check form-check-inline">
 							삭제 하시겠습니까?

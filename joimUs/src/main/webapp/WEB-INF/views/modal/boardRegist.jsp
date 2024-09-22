@@ -34,29 +34,29 @@
 						<div class="w-50 pl-1" style="display:none" id="moviePlace">
 								<select name="movieSelect"  class="form-control" id="movieSelect" onchange="confirmPlace(movieSelect.value)">
 									<option value="">장소 선택</option>
-									<option value="gun">건대 롯데시네마</option>
-									<option value="wang">왕십리 CGV</option>
-									<option value="woung">용산 CGV</option>
-									<option value="gang">강변 CGV</option>
+									<option value="건대">건대 롯데시네마</option>
+									<option value="왕십리">왕십리 CGV</option>
+									<option value="용산">용산 CGV</option>
+									<option value="강변">강변 CGV</option>
 								</select>
 							</div>
 							
 							<div class="w-50 pl-1" style="display:none" id="musicalPlace">
 								<select name="musicalSelect" class="form-control"  id="musicalSelect" onchange="confirmPlace(musicalSelect.value)">
 									<option value="">장소 선택</option>
-									<option value="hae">해오름 극장</option>
-									<option value="gwang">광림아트 센터</option>
-									<option value="dosan">두산아트센터</option>
-									<option value="blue">블루스퀘어</option>
+									<option value="해오름">해오름 극장</option>
+									<option value="광림아트센터">광림아트 센터</option>
+									<option value="두산아트센터">두산아트센터</option>
+									<option value="블루스퀘어">블루스퀘어</option>
 								</select>
 							</div>
 							
 							<div class="w-50 pl-1" style="display:none" id="concertPlace">
 								<select name="concertSelect" class="form-control"  id="concertSelect" onchange="confirmPlace(concertSelect.value)">
 									<option value="">장소 선택</option>
-									<option value="lg">LG아트센터</option>
-									<option value="woori">우리금융아트홀</option>
-									<option value="worker">쉐라톤그랜드워커힐</option>
+									<option value="LG아트센터">LG아트센터</option>
+									<option value="우리금융아트홀">우리금융아트홀</option>
+									<option value="워커힐">쉐라톤그랜드워커힐</option>
 								</select>
 							</div>
 						

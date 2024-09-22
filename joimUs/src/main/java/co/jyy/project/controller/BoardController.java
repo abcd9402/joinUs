@@ -224,6 +224,11 @@ public class BoardController {
 		String[] answer = {};
         answer = UVO.getAddress().split(" ");
         UVO.setAddress(answer[0]+" "+answer[1]);
+    	if(UVO.getGender().equals("M")) {
+			UVO.setGender("남성");
+		}else {
+			UVO.setGender("여성");
+		}
 		
 		
 		ObjectMapper mapper = new ObjectMapper();

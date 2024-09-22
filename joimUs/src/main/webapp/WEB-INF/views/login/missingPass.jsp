@@ -1,34 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<div class="missingPasswordWrapper">
-        <h2>비밀번호 찾기</h2>
-        <form method="post" action="login.html" id="missingPasswordForm">
-            <input type="text" name="name" placeholder="성함"/>
-            <input type="text" name="name" placeholder="아이디"/>
-            <input type="email" name="email" id="email" placeholder="이메일" />
-            <div id="certificationNumberCircle" hidden>
-                <input type="text"name='certificationNumber' id="certificationNumber"/>
-            </div>
-            <button type="button" id="sendEmailBtn" onclick=sendEmail() >인증번호 받기</button>
-            <button type="button" id="confirmNumberBtn" onclick=confirmNumber() hidden >인증번호 확인</button>
-            <div id="emailCheck" hidden>
-                * 이메일 형식이 잘못되었습니다.
-            </div>
-            <div class="missing">
-                <input type="submit" value="비밀번호 찾기" />
-            </div>
-        </form>
-    </div>
-</body>
-</html> -->
-
 
  <!--0827 제이쿼리 -->
 <script
@@ -55,26 +27,26 @@
 <%@include file="../includes/header.jsp"%>
 
 <main>
-<section class="container">
+<section class="container" style="padding-bottom:150px; ">
 
 	<div class="text-center mb-5">
 		<form class="form-signin border shadow ">
 			<h1 class="h3 mb-3 font-weight-normal">비밀번호 찾기</h1>
 
 			<div class="mb-3">
-				<label for="inputid" class="sr-only">아이디</label> <input type="text"
+				<label for="inputid" class="sr-only">아이디</label> <input type="text" autocomplete="off"
 					id="userId" class="form-control" placeholder="아이디" name="userId"
 					required autofocus>
 			</div>
 
 			<div class="mb-3">
-				<label for="inputname" class="sr-only">이름</label> <input type="text"
+				<label for="inputname" class="sr-only">이름</label> <input type="text" autocomplete="off"
 					id="userName" class="form-control" placeholder="이름"
 					name="userName" required>
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-9">
-					<label for="inputemail" class="sr-only">이메일</label> <input
+					<label for="inputemail" class="sr-only">이메일</label> <input autocomplete="off"
 						type="email" id="mail" class="form-control"
 						placeholder="이메일" name="mail" required>
 				</div>
@@ -84,7 +56,7 @@
 				</div>
 			</div>
 			<div class="mb-3" hidden id="certificationArea">
-				<label for="inputname" class="sr-only">인증번호</label> <input type="text"
+				<label for="inputname" class="sr-only">인증번호</label> <input type="text" autocomplete="off"
 					id="certificationNumber" class="form-control" placeholder="인증번호"
 					name="certificationNumber" required>
 			</div>
