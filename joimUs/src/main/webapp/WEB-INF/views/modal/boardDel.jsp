@@ -29,8 +29,8 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-primary" onclick="boardDel(boardNum.value)">삭제</button>
-				<button onclick="$('#modalDel').modal('hide');" class="btn btn-primary">취소</button>
+				<button class="btn btn-primary" onclick="boardDel(boardNum.value)" style="background-color: #660099;">삭제</button>
+				<button onclick="$('#modalDel').modal('hide');" class="btn btn-primary" style="background-color: #660099;">취소</button>
 			</div>
 		</div>
 	</div>

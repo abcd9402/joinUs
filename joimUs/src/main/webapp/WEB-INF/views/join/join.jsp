@@ -42,7 +42,7 @@
 						<input class="form-control" type="text" id="userId" name="userId" value="" placeholder="ID입력">
 					</div>
 
-					<button type="button" class="btn btn-outline-primary" id="idChk" onclick="idCheck(userId.value)">중복확인</button>
+					<button type="button" class="btn btn-outline-secondary"  id="idChk" onclick="idCheck(userId.value)">중복확인</button>
 					<input type="hidden" id = "idpass" value=""><!-- hidden -->
 					<input type="hidden" name="user_profile_img" id="user_profile_img" value="">
 					<div class="d-flex justify-content-center align-items-center border bg-light" id="previewImg" style="z-index:999;cursor:pointer;position:absolute;top:0;right:50px;width:150px;height:150px; "  >
@@ -119,7 +119,7 @@
 					<div class="col-sm-3">
 						<input class="form-control" type="text" id="addressNumber" name="addressNumber" value="" placeholder="우편번호입력" readonly="readonly">
 					</div>
-					<button type="button" class="btn btn-outline-primary" onclick="addressFind()">우편번호 찾기</button>
+					<button type="button" class="btn btn-outline-secondary" onclick="addressFind()">우편번호 찾기</button>
 				</div>
 
 				<div class="form-group row">
@@ -144,8 +144,8 @@
 				
 				<div class="text-center mt-3">
 				<input type="submit" id="confirm" hidden/>
-					<button class="btn btn-lg btn-primary" type="button" onclick="joinConfirm()">회원가입</button>
-					<button class="btn btn-lg btn-primary" type="reset" onclick="location.href='/'">취소</button>
+					<button class="btn btn-lg btn-primary"  style="background-color: #660099;" type="button" onclick="joinConfirm()">회원가입</button>
+					<button class="btn btn-lg btn-primary"  style="background-color: #660099;" type="reset" onclick="location.href='/'">취소</button>
 				</div>				
 			</form>
 		</div>

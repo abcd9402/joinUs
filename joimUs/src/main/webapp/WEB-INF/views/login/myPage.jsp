@@ -81,8 +81,8 @@
 				<div class="form-group row">
 				</div>
 					<div class="text-center">
-						<button type="button" class="btn btn-outline-primary" onclick="location.href='/'">회원정보수정</button>
-						<button type="reset" class="btn btn-outline-primary">취소</button>
+						<button type="button" class="btn btn-outline-secondary" onclick="location.href='/'">회원정보수정</button>
+						<button type="reset" class="btn btn-outline-secondary">취소</button>
 					</div>
 				
 				

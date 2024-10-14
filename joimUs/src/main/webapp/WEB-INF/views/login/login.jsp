@@ -45,18 +45,18 @@
 					type="password" name="password" id="password" class="form-control"
 					placeholder="비밀번호" required>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="button"
+			<button class="btn btn-lg btn-primary btn-block" style="background-color: #660099;" type="button"
 				onclick="login()">로그인</button>
 			<input type="submit" id="submitBtn" hidden />
 			<p class="mt-3">
-				아이디가 없으세요? <a class="font-weight-bold" href="/join">회원가입</a>
+				아이디가 없으세요? <a class="font-weight-bold" style="color: #660099;" href="/join">회원가입</a>
 			</p>
 			<p class="mt-1 mb-3">
-				아이디를 잊으셨나요? <a class="font-weight-bold" href="/login/missingId">아이디
+				아이디를 잊으셨나요? <a class="font-weight-bold" style="color: #660099;" href="/login/missingId">아이디
 					찾기</a>
 			</p>
 			<p class="mt-1 mb-3">
-				비밀번호를 잊으셨나요? <a class="font-weight-bold" href="/login/missingPass">비밀번호
+				비밀번호를 잊으셨나요? <a class="font-weight-bold"  style="color: #660099;" href="/login/missingPass">비밀번호
 					찾기</a>
 			</p>
 		</form>

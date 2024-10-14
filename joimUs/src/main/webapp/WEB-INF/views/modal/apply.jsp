@@ -25,11 +25,11 @@
 				<div class="border mb-3" id="map-detail" style="width:100%;height:200px;">
 					<img  id="detailimage" src="" style="cursor:pointer; width:100%;height:200px;" >
 				</div>
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">개설자</span><span id="detail-id"></span></div>
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">날 짜</span><span  id="detail-date"></span></div>
-				<div><span class="badge badge-pill badge-primary mr-2" style="width:80px;">시 간</span><span id="detail-time"></span></div>
+				<div><span class="badge badge-pill badge-primary mr-2"  style="width:80px; background-color: #660099;">개설자</span><span id="detail-id"></span></div>
+				<div><span class="badge badge-pill badge-primary mr-2"  style="width:80px; background-color: #660099;">날 짜</span><span  id="detail-date"></span></div>
+				<div><span class="badge badge-pill badge-primary mr-2"  style="width:80px; background-color: #660099;">시 간</span><span id="detail-time"></span></div>
 				<div class="d-flex">
-					<div class="mr-2"><span class="badge badge-pill badge-primary" style="width:80px;">내 용</span></div>
+					<div class="mr-2"><span class="badge badge-pill badge-primary"  style="width:80px; background-color: #660099;">내 용</span></div>
 					<div id="detail-content"></div>
 				</div>
 
@@ -47,7 +47,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary btn-block" onclick="sendMatch()">신청하기</button>
+				<button type="button" class="btn btn-primary btn-block" style="background-color: #660099;" onclick="sendMatch()">신청하기</button>
 			</div>
 		</div>
 	</div>

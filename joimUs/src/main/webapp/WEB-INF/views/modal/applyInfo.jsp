@@ -15,7 +15,7 @@
 <div class="modal fade" id="applyIn" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<div class="modal-header"  style="background-color:#bad5e4;">
+			<div class="modal-header"  style="background-color: #660099;">
 				<h5 class="modal-title" >지원자 정보</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="modalClose(applyIn)">
 					<span aria-hidden="true">&times;</span>
@@ -49,7 +49,7 @@
 					</div>
 				<!-- </section> -->
 			<div class="modal-footer">
-					<button type="button" class="btn btn-primary btn-block" onclick="modalClose(applyIn)">닫기</button>
+					<button type="button" class="btn btn-primary btn-block" style="background-color: #660099;" onclick="modalClose(applyIn)">닫기</button>
 			</div>
 		</div>
 	</div>

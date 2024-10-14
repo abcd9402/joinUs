@@ -45,7 +45,7 @@
             <input type="email" id="mail" class="form-control" placeholder="이메일" name="mail" required>
           </div>          
 			
-          <button class="btn btn-lg btn-primary btn-block" type="button" onclick="findId(userName.value, mail.value)" >ID 찾기</button>
+          <button class="btn btn-lg btn-primary btn-block" type="button" style="background-color: #660099;" onclick="findId(userName.value, mail.value)" >ID 찾기</button>
        </form>
       </div>
     </section>

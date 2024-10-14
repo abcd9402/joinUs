@@ -114,7 +114,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary btn-block" onclick="regMatch()">등록하기</button>
+				<button type="button" class="btn btn-primary btn-block" onclick="regMatch()" style="background-color: #660099;">등록하기</button>
 			</div>
 		</div>
 	</div>

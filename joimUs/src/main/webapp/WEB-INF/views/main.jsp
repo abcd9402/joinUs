@@ -42,14 +42,14 @@ $(document).ready(function(){
 									<h1 class="h4 mt-3 font-weight-normal color-light text-light">${user.userId}님
 									</h1>
 
-									<button class="btn btn-sm btn-primary btn-block mt-3"
+									<button class="btn btn-sm btn-primary btn-block mt-3" style="background-color: #660099;"
 										id="sendMailBtn" type="button" onclick="matchList()">매치목록</button>
-									<button class="btn btn-sm btn-primary btn-block mt-3"
+									<button class="btn btn-sm btn-primary btn-block mt-3" style="background-color: #660099;"
 										id="sendMailBtn" type="button" onclick="myPage()">정보수정</button>
 								</div>
 							</div>
 							<div class="form-group row">
-								<button class="btn btn-ls btn-primary btn-block"
+								<button class="btn btn-ls btn-primary btn-block" style="background-color: #660099;"
 									id="sendMailBtn" type="button" onclick="logout()">로그아웃</button>
 							</div>
 						</div>

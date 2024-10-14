@@ -51,19 +51,19 @@
 						placeholder="이메일" name="mail" required>
 				</div>
 				<div class="col-sm-3 pl-1" style="float: right;">
-					<button class="btn btn-ls btn-primary btn-block" id="sendMailBtn" type="button"
+					<button class="btn btn-ls btn-primary btn-block" id="sendMailBtn" type="button" style="background-color: #660099;"
 						onclick="sendMail()">전송</button>
 				</div>
 			</div>
 			<div class="mb-3" hidden id="certificationArea">
-				<label for="inputname" class="sr-only">인증번호</label> <input type="text" autocomplete="off"
+				<label for="inputname" class="sr-only">인증번호</label> <input type="text" autocomplete="off" 
 					id="certificationNumber" class="form-control" placeholder="인증번호"
 					name="certificationNumber" required>
 			</div>
 			<input type="text" id="certiNum" hidden />
 			<input type="text" id="pass" hidden />
 			<div class="mb-3">
-				<button class="btn btn-ls btn-primary btn-block" type="button"
+				<button class="btn btn-ls btn-primary btn-block" type="button" style="background-color: #660099;"
 				onclick="findpw()">비밀번호 찾기</button>
 			</div>
 

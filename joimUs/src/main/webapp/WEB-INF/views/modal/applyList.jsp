@@ -24,10 +24,10 @@
 				<table class="table table-hover table-bordered" id="table">
 					<thead>
 						<tr class="table-primary text-center">
-							<th style="width: 60px;">번호</th>
-							<th style="width: 80px;">신청자</th>
-							<th>내용</th>
-							<th style="width: 130px;">처리하기</th>
+							<th style="width: 60px; background-color: #660099;">번호</th>
+							<th style="width: 80px; background-color: #660099;">신청자</th>
+							<th style="background-color: #660099;">내용</th>
+							<th style="width: 130px; background-color: #660099;">처리하기</th>
 						</tr>
 					</thead>
 						<tbody>

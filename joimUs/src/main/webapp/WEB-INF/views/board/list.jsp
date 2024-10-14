@@ -31,7 +31,7 @@
 						<input type="text" class="form-control" name="keyword" value="${searchVO.keyword}" placeholder="아이디/제목 검색">
 					</div>
 					<div class="col">
-						<button type="submit" class="btn btn-primary align-bottom mr-1">검색</button>
+						<button type="submit" class="btn btn-primary align-bottom mr-1" style="background-color: #660099;" >검색</button>
 					</div>
 					<div class="col text-right">	
 						<button type="button" class="btn btn-success align-bottom mr-1 text-white" onclick="showModal(registModal)"><i class="bi bi-plus"></i> 등록하기</button>
@@ -64,12 +64,12 @@
 								<c:if test="${user.userId eq match.userId }">
 								<div class="d-flex">
 									<!-- <a href="/mypage/matchreceive" class="btn btn-outline-primary w-50">신청보기</a>&nbsp; -->
-									<a href="#" onclick="applyList(${match.boardNum})" class="btn btn-outline-primary w-50">신청보기</a>&nbsp;
+									<a href="#" onclick="applyList(${match.boardNum})" class="btn btn-outline-secondary w-50">신청보기</a>&nbsp;
 									<a href="javascript:popupDel(${match.boardNum});" class="btn btn-outline-danger w-50">매칭 삭제</a>
 								</div>
 								</c:if>
 								<%-- <c:if test="${ user.userId ne match.userId }"><button onclick="showInfo(${match.boardNum});" class="btn btn-outline-primary btn-block text-truncate">상세보기 및 매칭신청</button></c:if> --%>
- 								<c:if test="${ user.userId ne match.userId }"><button onclick="applyModal(${match.boardNum});" class="btn btn-outline-primary btn-block text-truncate">상세보기 및 매칭신청</button></c:if>
+ 								<c:if test="${ user.userId ne match.userId }"><button onclick="applyModal(${match.boardNum});" class="btn btn-outline-secondary btn-block text-truncate">상세보기 및 매칭신청</button></c:if>
 							</div>
 						</div>
 					</div>

@@ -26,7 +26,7 @@
 
 
 <body>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #660099;">
 	<div class="container">
 		<a class="navbar-brand mr-1 mb-1 mt-0" href="/"><img src="/resources/image/images/logo.png" height="36"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">

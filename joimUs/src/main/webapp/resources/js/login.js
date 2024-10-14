@@ -28,7 +28,6 @@ function findId(name,mail){
 }
 
 
-
 //이메일 전송
 function sendMail(){
 	var id = $("#userId").val();

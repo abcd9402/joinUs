@@ -16,6 +16,8 @@ function combineEmail(){
     
     var emailFront=$("#emailFront").val();
     var emailBack=$("#emailBack").val();
+    $("#selectValue").val("");
+    
     $("#mail").val(emailFront+"@"+emailBack);
     
 }
