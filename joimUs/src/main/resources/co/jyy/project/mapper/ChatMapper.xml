@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.jyy.project.mapper.ChatMapper">
+
+	<select id="readYN"  resultType="co.jyy.project.VO.ChatVO" >
+		
+		select readYN,sender,recipient
+			From ChatTable
+			Where (sender = #{id} or recipient = #{id})
+		
+	</select>
+	
+	<select id="chatList" resultType="co.jyy.project.VO.ChatRoomVO">
+		<!-- select A.ChatRoomNum,A.sender,A.recipient, A.selfImage,
+			A.updateDate,B.message,A.userImage, A.readYN
+		from ChatRoomTable A
+		INNER JOIN ChatTable B
+			ON A.ChatRoomNum = B.ChatRoomNum
+				AND (A.sender = #{id}
+				OR A.recipient = #{id})
+		ORDER BY A.updateDate -->
+		 WITH RankedChatRooms AS (
+		    SELECT A.ChatRoomNum, A.sender, A.recipient, A.selfImage,
+		           A.updateDate, B.message, A.userImage, A.readYN,
+		           ROW_NUMBER() OVER (PARTITION BY A.ChatRoomNum ORDER BY B.createDate DESC) AS rn 
+		    FROM ChatRoomTable A
+		    INNER JOIN ChatTable B
+		        ON A.ChatRoomNum = B.ChatRoomNum
+		    WHERE A.sender = #{id} OR A.recipient = #{id}
+		)
+		SELECT ChatRoomNum, sender, recipient, selfImage, updateDate, message, userImage, readYN
+		FROM RankedChatRooms
+		WHERE rn = 1
+		ORDER BY ChatRoomNum, updateDate DESC 
+
+		
+	</select>
+	
+	<insert id="chatRoomInsert">
+		insert into ChatRoomTable(
+			sender, recipient, userImage, message, selfImage
+		)values(
+			#{sender}, #{recipient}, #{userImage}, #{message}, #{selfImage}
+		)
+		
+	</insert>
+	
+	<select id="selectChatRoom" resultType="co.jyy.project.VO.ChatRoomVO">
+		<![CDATA[
+			select ChatRoomNum, sender, recipient, userImage, message, readYN, updateDate
+				from ChatRoomTable
+				where sender = #{sender} 
+					and  recipient = #{recipient} 
+					and message = #{message} 
+					and rownum<2 
+			]]> 
+	</select>
+	<insert id="insertChat">
+		insert into ChatTable(
+			ChatRoomNum, sender, recipient, message
+		)values(
+			#{ChatRoomNum},#{sender},#{recipient},#{message}
+		)
+	</insert>
+	
+	<select id="chatCommentList" resultType="co.jyy.project.VO.ChatVO">
+		select A.chatnum, A.chatroomnum, A.sender, A.recipient,
+				A.message, A.readYN, A.createDate,
+				B.selfImage, B.userImage
+			from chattable A
+			INNER JOIN ChatRoomTable B
+			ON A.chatroomnum = #{num}
+				and A.chatroomnum = B.chatroomnum
+			order by chatnum
+	</select>
+	
+	<update id="readUpdate">
+		update chatTable
+			set readYN = 'Y'
+			where chatroomnum = #{ChatRoomNum}
+				and chatnum = (select max(chatnum) from chatTable where chatroomnum = #{ChatRoomNum})
+	</update>
+	
+	<update id="readUpdate2">
+		update chatRoomTable
+			set readYN = 'Y'
+			where chatroomnum = #{ChatRoomNum}
+	</update>
+	
+	<insert id="insertChatMessage">
+		insert into ChatTable(
+			ChatRoomNum,sender,recipient,message,readYN
+		)values(
+			#{ChatRoomNum},#{sender},#{recipient},#{message},'N'
+		)
+	</insert>
+	
+	<insert id="insertChatMessage2">
+		insert into ChatTable(
+			ChatRoomNum,sender,recipient,message,readYN
+		)values(
+			#{ChatRoomNum},#{sender},#{recipient},#{message},'R'
+		)
+	</insert>
+	
+	<update id="updateChatRoom">
+		update chatRoomTable
+			set readYN = 'N', message = #{message}, updatedate = sysdate
+			where chatRoomNum = #{ChatRoomNum}	
+	</update>
+	
+	<update id="updateChatRoom2">
+		update chatRoomTable
+			set readYN = 'R', message = #{message}, updatedate = sysdate
+			where chatRoomNum = #{ChatRoomNum}	
+	</update>
+
+
+
+</mapper>

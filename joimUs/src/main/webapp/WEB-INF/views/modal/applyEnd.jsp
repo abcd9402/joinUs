@@ -3,12 +3,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/resources/js/Board.js"></script>
+<script src="/resources/js/chat.js"></script>
 </head>
 <body>
 <div class="modal fade" id="applyEnd" tabindex="-1" role="dialog">
@@ -44,7 +47,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				
+				<button type="button" class="btn btn-primary btn-block" style="background-color: #660099;" onclick="openChatList()">채팅하기</button>
 			</div>
 		</div>
 	</div>

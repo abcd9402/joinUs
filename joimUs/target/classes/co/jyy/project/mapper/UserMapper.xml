@@ -106,6 +106,15 @@
 			applyNum like #{num}
 	</update>
 
+	<select id="selectUser" resultType="co.jyy.project.VO.UserVO">
+		<![CDATA[
+		select 
+			userId,userImage 
+		from userTable 
+		where userId like #{userImage} 
+			and rownum <2
+		]]>
+	</select>
 
 
 </mapper>

@@ -50,6 +50,24 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#navbarText{
+	animation: blink 1s infinite; /* 1초 간격으로 무한 반복 */
+}
+
+
 @-ms-viewport {
   width: device-width; }
 

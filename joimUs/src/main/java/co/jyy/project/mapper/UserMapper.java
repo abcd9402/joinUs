@@ -30,4 +30,6 @@ public interface UserMapper {
 	
 	public BoardVO selectBoard(int num);
 	
+	public UserVO selectUser(String userImage);
+	
 }

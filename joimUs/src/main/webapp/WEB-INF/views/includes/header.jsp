@@ -16,7 +16,9 @@
 
 <!-- 함수 파일 -->
 <script src="/resources/js/login.js"></script>
+<script src="/resources/js/chat.js"></script>
 <title>Joins</title>
+
 
  <!--0827 제이쿼리 -->
 <script
@@ -24,6 +26,11 @@
 	integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script>
+$(document).ready(function(){
+	initHeader('${user.userId}');
+});
+</script>
 
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #660099;">
@@ -48,6 +55,11 @@
 					    <div class="dropdown-divider"></div>
 					    <a class="dropdown-item px-2" onclick="logout()"><i class="bi bi-box-arrow-right"></i> 로그아웃</a>
 					</div>
+				</li>
+				<li>
+					<a class="nav-link text-white" href="#" id="navbarText" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="bi bi-chat-dots" onclick="chatList('${user.userId}')" id="chatIcon"></i>
+					</a>
 				</li>
 				</c:if>
 			</ul>

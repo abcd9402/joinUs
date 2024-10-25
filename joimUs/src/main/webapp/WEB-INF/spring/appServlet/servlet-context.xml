@@ -27,6 +27,8 @@
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean>
 	
+
+	
 	
 	<!-- <beans:bean id="loginInterceptor" class="co.jyy.project.interceptor.loginInterceptor"/> -->
 	
@@ -48,9 +50,16 @@
 	
 	
 	
-	
+	<websocket:handlers>
+		<websocket:mapping handler="chattingHandler" path="/chat"/>
+		<websocket:handshake-interceptors>
+			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+			<beans:bean class="co.jyy.project.socket.CustomHandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+		<websocket:sockjs></websocket:sockjs>
+	</websocket:handlers>
 
-
+	<beans:bean id="chattingHandler" class="co.jyy.project.socket.ChattingHandler"></beans:bean>
 	
 	
 	

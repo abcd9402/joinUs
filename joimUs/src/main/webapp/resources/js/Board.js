@@ -251,6 +251,7 @@ function applyList(num){
 		
 		$('#applyListModal').modal('show');
 		
+		
 		/*if (data == "success") {
 			
 			$('#applyListModal').modal('show');
@@ -363,7 +364,6 @@ function applyInfo(id){
 		}
 	});
 }
-
 
 
 
